@@ -333,7 +333,7 @@ tr:last-child td:last-child {
 /* ============== Inline Elements ============== */
 div.inline-title {
   color: var(--title-color);
-  margin-bottom: 0;
+  margin-bottom: 4px;
   /* Sierra's Choice: Removed font style  */
 }
 
@@ -431,7 +431,7 @@ img {
   .workspace-tabs
   .workspace-leaf,
 .mod-root .workspace-tabs .workspace-leaf {
-  border-radius: 20px;
+  /* border-radius: 20px; */
   border: solid 1px var(--background-modifier-border);
 }
 
@@ -457,6 +457,7 @@ img {
   margin: 3px auto; /* Center the box horizontally and vertically */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   border: solid 1px var(--background-modifier-border);
+  /* transition: none; */
 }
 
 /*  =============== Tabs =============== */
@@ -535,12 +536,6 @@ body:not(.is-mobile)
   }
 }
 
-/* Stacked tabs */
-.workspace-tabs.mod-stacked .workspace-tab-header-inner {
-  border: 1px solid var(--color-base-50);
-  border-radius: 1000px;
-}
-
 /* Remove lines in-between tabs */
 .workspace .mod-root .workspace-tab-header-inner::after {
   display: none;
@@ -614,4 +609,51 @@ body:not(.is-mobile)
 .workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
 .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
   border: transparent;
+}
+
+/*  =============== Stacked tabs =============== */
+
+.workspace-tabs.mod-stacked {
+  position: relative;
+
+  .workspace-leaf {
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
+  .workspace-tab-header {
+    border-radius: 20px 0 0 20px !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+  .workspace-tab-header-inner {
+    border-radius: 18px 0 0 18px !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+  /* Active thicc */
+  .workspace-tab-header.is-active {
+    border-width: 3px;
+    border-color: var(--color-base-50);
+  }
+
+  /* Sneakily hide the gap between a hidden tab header and its leaf 
+   * Doesn't work for preloaded tabs,
+   * but there are no known elegant alternatives */
+  .workspace-tab-header:has(+ .workspace-leaf.is-hidden)
+    .workspace-tab-header-inner::after {
+    content: "";
+    display: block;
+    height: 20px;
+    width: 20px;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    background: var(--background-primary);
+    z-index: -1;
+  }
 }
