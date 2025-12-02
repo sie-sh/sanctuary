@@ -38,6 +38,7 @@ const files = [
   // dont
   "src/fonts.css",
   "src/theme.css",
+  "src/lists.css",
   "src/style-settings.css",
 ];
 
