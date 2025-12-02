@@ -1,5 +1,5 @@
 /* @settings
-name: Shade Sanctuary Settings
+name: Sierra's Sanctuary 
 id: colorthemes
 settings:
   -
@@ -9,6 +9,9 @@ settings:
     type: class-select
     default: purple-mystic
     options:
+      -
+        label: Carmotte
+        value: carmotte-lust
       -
         label: Red
         value: red-passion
@@ -50,8 +53,14 @@ settings:
         label: Twilight
         value: intensity-twilight
       -
+        label: Mist
+        value: intensity-mist
+      -
         label: Dawn
         value: intensity-dawn
+      -
+        label: Overcast
+        value: intensity-overcast
   -
     id: heading-fonts
     title: Fonts
