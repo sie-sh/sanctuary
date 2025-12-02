@@ -98,7 +98,8 @@ module.exports = function (grunt) {
       hot_reload: {
         expand: true,
         src: ["dist/theme.css"],
-        dest: process.env.HOME + process.env.OBSIDIAN_PATH + "Sanctuary/",
+        dest:
+          process.env.HOME + process.env.OBSIDIAN_PATH + "Sierra's Sanctuary/",
         rename: function (dest, src) {
           return dest + "theme.css";
         },
