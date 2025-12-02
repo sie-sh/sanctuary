@@ -34,7 +34,12 @@ Read more at https://git.new/primary/obsidian
 
 ────────────────────────────────────*/
 
-const files = ["src/theme.css", "src/style-settings.css", "src/fonts.css"];
+const files = [
+  // dont
+  "src/fonts.css",
+  "src/theme.css",
+  "src/style-settings.css",
+];
 
 module.exports = function (grunt) {
   grunt.initConfig({
@@ -63,7 +68,7 @@ module.exports = function (grunt) {
       },
       minified: {
         files: {
-          "src/theme.css": "src/theme.css",
+          "dist/theme.css": "dist/theme.css",
         },
       },
     },
@@ -74,12 +79,12 @@ module.exports = function (grunt) {
     concat_css: {
       unminified: {
         files: {
-          "Sanctuary.css": files,
+          "dist/Sanctuary.css": files,
         },
       },
       dist: {
         files: {
-          "theme.css": files,
+          "dist/theme.css": files,
         },
       },
     },
@@ -92,7 +97,7 @@ module.exports = function (grunt) {
     copy: {
       hot_reload: {
         expand: true,
-        src: ["theme.css", "manifest.json"],
+        src: ["dist/theme.css"],
         dest: process.env.HOME + process.env.OBSIDIAN_PATH + "Sanctuary/",
         rename: function (dest, src) {
           return dest + "theme.css";
