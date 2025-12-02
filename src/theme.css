@@ -362,7 +362,7 @@ img {
 }
 #calendar-container {
   padding: 0px 8px 8px 8px;
-  border: solid 1px var(--color-base-30);
+  border: solid 1px var(--background-modifier-border);
   border-radius: 20px;
   background: var(--color-base-00);
   width: 250px;
@@ -451,7 +451,7 @@ body:not(.is-mobile)
   .workspace-split.mod-left-split
   .workspace-sidedock-vault-profile {
   border-radius: 10px;
-  border: solid 1px var(--color-base-30);
+  border: solid 1px var(--background-modifier-border);
   padding: 5px;
   margin: 0px 0px 5px 0px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -524,7 +524,7 @@ body:not(.setting-item-title-icon-remove):not(.is-phone)
 
 /* Set background and borders */
 .style-settings-heading:not([data-level="0"]) + .style-settings-container {
-  border: 1px solid var(--color-base-30);
+  border: 1px solid var(--background-modifier-border);
   border-radius: 16px;
   padding: var(--size-4-2);
   padding-left: var(--size-4-6);
@@ -586,7 +586,7 @@ body:not(.setting-item-title-icon-remove):not(.is-phone)
   .workspace-leaf,
 .mod-root .workspace-tabs .workspace-leaf {
   border-radius: 20px;
-  border: solid 1px var(--color-base-30);
+  border: solid 1px var(--background-modifier-border);
 }
 
 /* Banner plugin set images to round */
@@ -611,14 +611,15 @@ body:not(.setting-item-title-icon-remove):not(.is-phone)
   height: 46px; /* Make the height smaller than the parent container */
   margin: 3px auto; /* Center the box horizontally and vertically */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  border: solid 1px var(--color-base-30);
+  border: solid 1px var(--background-modifier-border);
 }
 
 /*  =============== Tabs and Icons =============== */
+
 /* Active tab behavior */
 .workspace .mod-root .workspace-tab-header.is-active {
   border-radius: 10px 10px 0px 0px;
-  border: solid 1px var(--color-base-30);
+  border: solid 1px var(--background-modifier-border);
   z-index: 10;
   height: calc(100% + 6px); /* Increase the height */
 }
@@ -628,7 +629,7 @@ body:not(.setting-item-title-icon-remove):not(.is-phone)
   background-color: var(--inactive-tab-background);
   .workspace-tab-header-inner {
     border-radius: 10px 10px 0px 0px;
-    border: solid 1px var(--color-base-30);
+    border: solid 1px var(--background-modifier-border);
     z-index: 10;
     height: calc(100% + 6px); /* Increase the height */
     padding-bottom: 4px;
