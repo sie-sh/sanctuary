@@ -91,4 +91,26 @@ settings:
     description: Font used within callouts
     type: variable-text
     default: 'Computer Modern'
+  - 
+    id: theme-tweaks
+    title: Tweaks
+    type: heading
+    level: 1
+    collapsed: true
+  - 
+    id: theme-compact-setting
+    title: Compact
+    description: Makes the theme compact, in the style of Replete's Minimal Theme Snippets
+    type: class-select
+    default: theme-expanded
+    options:
+      -
+        label: Default
+        value: theme-expanded
+      -
+        label: Compact
+        value: theme-compact
+      -
+        label: Ultra Compact
+        value: theme-ultra-compact
 */

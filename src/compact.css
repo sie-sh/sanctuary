@@ -1,0 +1,91 @@
+/* -------------------
+ * Compact mode. Credit to @replete's Ultra Compact Minial snippets: 
+ * https://github.com/replete/obsidian-minimal-theme-css-snippets
+ * Support @replete - https://buymeacoffee.com/replete 
+ * ------------------- */
+body.theme-compact,
+body.theme-ultra-compact {
+  --tab-stacked-header-width: 40px; /* Keep normal width in stacked mode  */
+  --header-height: 33px;
+  --theme-compact-gap: 2px;
+
+  &.theme-ultra-compact {
+    --header-height: 28px;
+    --theme-compact-gap: 1px;
+  }
+
+  &.mod-windows,
+  &.mod-linux {
+    --frame-right-space: 80px !important;
+  }
+
+  .pdf-toolbar {
+    --swatch-width: 20px !important;
+
+    input {
+      height: var(--swatch-width) !important;
+    }
+  }
+
+  .titlebar {
+    /* Fix and make the windows buttons small   */
+    .mod-right {
+      width: 80px;
+      right: 10px;
+
+      .titlebar-button {
+        padding: 0 calc(80px / 9);
+      }
+    }
+  }
+
+  /* Ribbon */
+  .workspace-ribbon.mod-left {
+  }
+
+  /* Clip top bord of ribbon on macos for visual simplicity  */
+  &.mod-macos .workspace-ribbon.mod-left::before {
+    /* display: none; */
+  }
+
+  /* Sidebar icon gaps */
+  .mod-sidedock .workspace-tab-header-container {
+    padding-left: var(--theme-compact-gap);
+
+    .workspace-tab-header-container-inner {
+      /* revisit */
+      margin: max(0, calc(var(--theme-compact-gap)) - 1px) 0
+        var(--theme-compact-gap);
+    }
+  }
+
+  /* Tab container gaps  */
+  .workspace-split:not(.mod-sidedock) .workspace-tab-header-container-inner {
+    /* revisit */
+    margin-top: -1px !important;
+  }
+
+  /* Compact Statusbar */
+  @container style(--status-bar-position: fixed) {
+    .status-bar {
+      padding: 2px;
+    }
+  }
+
+  /* Sidebar Toggle Buttons  */
+
+  .sidebar-toggle-button.mod-right,
+  .sidebar-toggle-button.mod-left {
+    margin-top: 1px;
+    padding: 4px 0;
+
+    .clickable-icon {
+      padding: 8px 6px;
+      height: 100%;
+    }
+    svg {
+      width: 18px;
+      height: auto;
+    }
+  }
+}
