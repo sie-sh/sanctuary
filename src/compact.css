@@ -27,23 +27,29 @@ body.theme-ultra-compact {
     }
   }
 
+  /* TODO: fix windows icons */
   .titlebar {
     /* Fix and make the windows buttons small   */
     .mod-right {
-      width: 80px;
-      right: 10px;
+      /* width: 80px; */
+      /* right: 10px; */
 
       .titlebar-button {
-        padding: 0 calc(80px / 9);
+        /* padding: 0 calc(80px / 9); */
       }
     }
   }
 
-  /* Ribbon */
-  .workspace-ribbon.mod-left {
+  .view-header {
+    height: 42px;
+    --cmdr-spacing: 0px;
   }
 
-  /* Clip top bord of ribbon on macos for visual simplicity  */
+  &.theme-ultra-compact .view-header {
+    height: 38px;
+  }
+  /* Clip top bord of ribbon on macos for visual simplicity
+    * abandoned */
   &.mod-macos .workspace-ribbon.mod-left::before {
     /* display: none; */
   }
@@ -53,7 +59,6 @@ body.theme-ultra-compact {
     padding-left: var(--theme-compact-gap);
 
     .workspace-tab-header-container-inner {
-      /* revisit */
       margin: max(0, calc(var(--theme-compact-gap)) - 1px) 0
         var(--theme-compact-gap);
     }
@@ -61,19 +66,19 @@ body.theme-ultra-compact {
 
   /* Tab container gaps  */
   .workspace-split:not(.mod-sidedock) .workspace-tab-header-container-inner {
-    /* revisit */
     margin-top: -1px !important;
   }
 
   /* Compact Statusbar */
-  @container style(--status-bar-position: fixed) {
-    .status-bar {
-      padding: 2px;
-    }
+  .status-bar {
+    padding: 2px;
+  }
+
+  &.theme-ultra-compact .status-bar {
+    padding: 0px;
   }
 
   /* Sidebar Toggle Buttons  */
-
   .sidebar-toggle-button.mod-right,
   .sidebar-toggle-button.mod-left {
     margin-top: 1px;
@@ -87,5 +92,10 @@ body.theme-ultra-compact {
       width: 18px;
       height: auto;
     }
+  }
+
+  /* Properties, remove "properties" heading  */
+  div.metadata-properties-heading {
+    display: none;
   }
 }

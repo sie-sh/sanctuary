@@ -65,17 +65,6 @@ body
   }
 }
 
-.carmotte-lust {
-  --hue-bg: 342;
-  --hue-fg: 320;
-  --sat-bg: 60%;
-  --sat-fg: 100%;
-  &.theme-light {
-    --lum-fg: 50%;
-    --lum-bg: 95%;
-  }
-}
-
 .red-passion {
   --hue-bg: 340;
   --hue-fg: 320;
@@ -333,12 +322,8 @@ tr:last-child td:last-child {
 /* ============== Inline Elements ============== */
 div.inline-title {
   color: var(--title-color);
-  margin-bottom: 4px;
+  /* margin-bottom: 4px; */
   /* Sierra's Choice: Removed font style  */
-}
-
-div.metadata-properties-heading {
-  display: none;
 }
 
 /* ============== Images ============== */
@@ -367,7 +352,7 @@ img {
   border: solid 1px var(--background-modifier-border);
   border-radius: 20px;
   background: var(--color-base-00);
-  width: 250px;
+  max-width: 270px;
   margin: 0 auto; /* Center block elements horizontally */
   .year {
     color: var(--text-muted);
@@ -467,7 +452,7 @@ body:not(.is-mobile) .view-content {
   /* transition: none; */
 }
 
-/*  =============== ??? gen =============== */
+/*  =============== General =============== */
 
 /* Recolor the background */
 body,
@@ -497,7 +482,7 @@ body {
   --tab-outline-color: var(--divider-color);
   --tab-outline-width: 1px;
   --tab-curve: 10px;
-  --tab-width: 180px;
+  --tab-width: 240px;
   --tab-max-width: 400px;
 }
 
@@ -612,7 +597,12 @@ body {
 
 /* Sierra's Choice: Rounded stacked tabs */
 .workspace-tabs.mod-stacked {
-  position: relative;
+  .workspace-tab-container {
+    /* border: solid 1px var(--background-modifier-border); */
+    border-right: solid 1px var(--background-modifier-border);
+    border-left: none;
+    border-radius: 20px;
+  }
 
   .workspace-leaf {
     border-radius: 0 !important;
@@ -623,7 +613,6 @@ body {
     border-radius: 20px 0 0 20px !important;
     border-right: none !important;
     border-top: none !important;
-
     border-bottom: none !important;
   }
 
@@ -651,7 +640,7 @@ body {
     display: block;
     height: 20px;
     width: 20px;
-    top: 0;
+    tderop: 0;
     right: 0;
     transform: translateX(100%);
     background: var(--background-primary);

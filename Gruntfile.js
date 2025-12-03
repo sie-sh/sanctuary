@@ -40,6 +40,7 @@ const files = [
   "src/theme.css",
   "src/lists.css",
   "src/compact.css",
+  "src/misc.css",
   "src/options-style.css",
   "src/style-settings.css",
 ];

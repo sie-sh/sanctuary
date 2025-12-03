@@ -10,9 +10,6 @@ settings:
     default: purple-mystic
     options:
       -
-        label: Carmotte
-        value: carmotte-lust
-      -
         label: Red
         value: red-passion
       -
@@ -100,7 +97,7 @@ settings:
   - 
     id: theme-compact-setting
     title: Compact
-    description: Makes the theme compact, in the style of Replete's Minimal Theme Snippets
+    description: Makes tabs and headers compact. Inspired by Replete's Minimal Theme Snippets. *Recommended - Compact*
     type: class-select
     default: theme-expanded
     options:
@@ -113,4 +110,25 @@ settings:
       -
         label: Ultra Compact
         value: theme-ultra-compact
+  - 
+    id: embed-style
+    title: Embed Styling
+    description: Changes how much embds are distinguished amongst other blocks of text.
+    type: class-select
+    default: embeds-default
+    options:
+      -
+        label: Obsidian Default
+        value: embeds-default
+      -
+        label: Relaxed (Show Outline on hover)
+        value: embeds-conform
+      -
+        label: Stealth (Appear Inline)
+        value: embeds-stealth
+  - 
+    id: wide-tabs
+    title: Wide Tabs
+    description: Let tabs be really wide until the tab container is full. They will still shrink.
+    type: class-toggle
 */
