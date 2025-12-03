@@ -415,6 +415,13 @@ img {
 }
 
 /*  =============== Editor =============== */
+
+body:not(.is-mobile) .view-content {
+  border-radius: 16px;
+  width: calc(100% - 6px);
+  margin: 0 auto;
+}
+
 /* Remove borders on sidebars and headers */
 .workspace-ribbon,
 .workspace-tab-header-container {
@@ -431,7 +438,7 @@ img {
   .workspace-tabs
   .workspace-leaf,
 .mod-root .workspace-tabs .workspace-leaf {
-  /* border-radius: 20px; */
+  border-radius: 20px;
   border: solid 1px var(--background-modifier-border);
 }
 
@@ -476,18 +483,6 @@ body {
 /* Sierra's Choice: Tabs a bit more snug  */
 .workspace-tab-header-container-inner {
   margin: 2px -5px -1px;
-}
-
-/* Remove backgrounds on the sides */
-.workspace,
-.workspace-split,
-.workspace-tabs .workspace-leaf,
-.workspace-ribbon,
-.workspace-split.mod-root,
-.workspace-tab-header-container,
-.workspace-split.mod-root .view-content {
-  /* remove background as parent will be the one to have it instead */
-  background: none;
 }
 
 /* Recolor the background */
@@ -626,10 +621,12 @@ body:not(.is-mobile)
     border-radius: 20px 0 0 20px !important;
     border-right: none !important;
     border-top: none !important;
+
     border-bottom: none !important;
   }
 
   .workspace-tab-header-inner {
+    width: min-content !important;
     border-radius: 18px 0 0 18px !important;
     border-right: none !important;
     border-top: none !important;
