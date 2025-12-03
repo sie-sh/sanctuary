@@ -469,11 +469,11 @@ body {
   --tab-outline-color: var(--divider-color);
   --tab-outline-width: 1px;
   --tab-curve: 10px;
-  --tab-width: 180px;
+  --tab-width: 120px;
   --tab-max-width: 400px;
 }
 
-/* Tabs a bit more snug  */
+/* Sierra's Choice: Tabs a bit more snug  */
 .workspace-tab-header-container-inner {
   margin: 2px -5px -1px;
 }
@@ -613,6 +613,7 @@ body:not(.is-mobile)
 
 /*  =============== Stacked tabs =============== */
 
+/* Sierra's Choice: Rounded stacked tabs */
 .workspace-tabs.mod-stacked {
   position: relative;
 
@@ -642,7 +643,7 @@ body:not(.is-mobile)
   }
 
   /* Sneakily hide the gap between a hidden tab header and its leaf 
-   * Doesn't work for preloaded tabs,
+   * Doesn't work for preloaded zero-width tabs,
    * but there are no known elegant alternatives */
   .workspace-tab-header:has(+ .workspace-leaf.is-hidden)
     .workspace-tab-header-inner::after {
