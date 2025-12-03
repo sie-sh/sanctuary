@@ -467,23 +467,7 @@ body:not(.is-mobile) .view-content {
   /* transition: none; */
 }
 
-/*  =============== Tabs =============== */
-
-body {
-  --tab-background-active: var(--background-primary);
-  --tab-font-size: 10pt;
-  --tab-font-weight: inherit;
-  --tab-outline-color: var(--divider-color);
-  --tab-outline-width: 1px;
-  --tab-curve: 10px;
-  --tab-width: 120px;
-  --tab-max-width: 400px;
-}
-
-/* Sierra's Choice: Tabs a bit more snug  */
-.workspace-tab-header-container-inner {
-  margin: 2px -5px -1px;
-}
+/*  =============== ??? gen =============== */
 
 /* Recolor the background */
 body,
@@ -506,6 +490,24 @@ body:not(.is-mobile)
 
 /*  =============== Tabs and Icons =============== */
 
+body {
+  --tab-background-active: var(--background-primary);
+  --tab-font-size: 10pt;
+  --tab-font-weight: inherit;
+  --tab-outline-color: var(--divider-color);
+  --tab-outline-width: 1px;
+  --tab-curve: 10px;
+  --tab-width: 180px;
+  --tab-max-width: 400px;
+}
+
+/* Sierra's Choice: Tabs a bit more snug 
+* Vertical decrease makes tabs appear "attached" to the frame */
+
+.workspace-tab-header-container-inner {
+  margin: 2px -5px -1px;
+}
+
 .workspace .mod-root .workspace-tab-header {
   padding-left: 0;
   padding-right: 0;
@@ -527,7 +529,7 @@ body:not(.is-mobile)
     border: solid 1px var(--background-modifier-border);
     z-index: 10;
     height: calc(100% + 6px); /* Increase the height */
-    /* padding-bottom: 4px; */
+    margin-top: 1px;
   }
 }
 
@@ -639,7 +641,8 @@ body:not(.is-mobile)
     border-color: var(--color-base-50);
   }
 
-  /* Sneakily hide the gap between a hidden tab header and its leaf 
+  /* Sneakily hide the gap between a hidden tab header 
+   * and the rounded corner of the next leaf.
    * Doesn't work for preloaded zero-width tabs,
    * but there are no known elegant alternatives */
   .workspace-tab-header:has(+ .workspace-leaf.is-hidden)
