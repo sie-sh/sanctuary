@@ -149,7 +149,7 @@ body
 .theme-light,
 .intensity-twilight {
   --lum: 11%;
-  /* Sierra's Choice: All backgroudns same color.  */
+  /* Redux: All backgroudns same color.  */
   --background-secondary: var(--color-base-00) !important;
 }
 
@@ -323,7 +323,7 @@ tr:last-child td:last-child {
 div.inline-title {
   color: var(--title-color);
   /* margin-bottom: 4px; */
-  /* Sierra's Choice: Removed font style  */
+  /* Redux: Removed font style  */
 }
 
 /* ============== Images ============== */
@@ -435,21 +435,51 @@ body:not(.is-mobile) .view-content {
 
 /* Center the editor */
 .markdown-preview-view {
-  /* Sierra's Choice: Remove any border from the view   */
+  /* Redux: Remove any border from the view   */
 }
 
 /* Center the header and revamp it */
+
+body {
+  --view-header-height: 46px;
+}
+
 .workspace-leaf .view-header {
-  border-radius: 16px;
-  background: var(--background-secondary);
   width: calc(
     100% - 6px
   ); /* Make the width smaller than the parent container */
-  height: 46px; /* Make the height smaller than the parent container */
-  margin: 3px auto; /* Center the box horizontally and vertically */
+  height: var(--view-header-height);
+  max-height: var(--view-header-height);
+  margin: 3px; /* Center the box horizontally and vertically */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   border: solid 1px var(--background-modifier-border);
-  /* transition: none; */
+  border-radius: 16px;
+  background: var(--background-secondary);
+}
+
+.is-mobile .view-header,
+.is-tablet .view-header {
+  /* padding: 12px !important; */
+
+  .view-actions {
+    gap: 4px;
+    /* Condensed Icon spacing */
+    .clickable-icon {
+      border-radius: 0;
+      transition: 0.2s color ease-in;
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+  }
+
+  .view-header-title-container {
+    height: 100%;
+  }
 }
 
 /*  =============== General =============== */
@@ -486,7 +516,7 @@ body {
   --tab-max-width: 400px;
 }
 
-/* Sierra's Choice: Tabs a bit more snug 
+/* Redux: Tabs a bit more snug 
 * Vertical decrease makes tabs appear "attached" to the frame */
 
 .workspace-tab-header-container-inner {
@@ -595,7 +625,7 @@ body {
 
 /*  =============== Stacked tabs =============== */
 
-/* Sierra's Choice: Rounded stacked tabs */
+/* Redux: Rounded stacked tabs */
 .workspace-tabs.mod-stacked {
   .workspace-tab-container {
     /* border: solid 1px var(--background-modifier-border); */
@@ -640,7 +670,7 @@ body {
     display: block;
     height: 20px;
     width: 20px;
-    tderop: 0;
+    top: 0;
     right: 0;
     transform: translateX(100%);
     background: var(--background-primary);

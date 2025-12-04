@@ -41,12 +41,17 @@ body.theme-ultra-compact {
   }
 
   .view-header {
-    height: 42px;
+    --view-header-height: 42px !important;
     --cmdr-spacing: 0px;
+
+    svg {
+      /* Impossible to resize outside of snippets apparently  */
+      width: 16px !important;
+    }
   }
 
   &.theme-ultra-compact .view-header {
-    height: 38px;
+    --view-header-height: 38px !important;
   }
   /* Clip top bord of ribbon on macos for visual simplicity
     * abandoned */
@@ -66,6 +71,11 @@ body.theme-ultra-compact {
 
   /* Tab container gaps  */
   .workspace-split:not(.mod-sidedock) .workspace-tab-header-container-inner {
+    margin-top: 0px !important;
+  }
+  &.theme-ultra-compact
+    .workspace-split:not(.mod-sidedock)
+    .workspace-tab-header-container-inner {
     margin-top: -1px !important;
   }
 

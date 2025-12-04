@@ -1,6 +1,6 @@
 /* Big titles  */
 .wide-tabs {
-  --tab-width: 350px;
+  --tab-width: 375px;
   --tab-max-width: 800px;
 }
 
@@ -15,13 +15,13 @@
 
   &.embeds-conform {
     .markdown-embed {
-      padding: 10px;
+      padding: 10px 5px;
       border-radius: 10px;
 
       border: 1px solid transparent;
+      transition: 200ms ease-out;
+      transition-property: backround outline;
       &:hover {
-        transition: 200ms ease-out;
-        transition-property: backround outline;
         background: var(--color-base-05);
         border-color: var(--background-modifier-border);
       }
