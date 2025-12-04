@@ -1,4 +1,4 @@
-## Sierra's Sanctuary
+## Sanctuary Redux
 
 Fork of Shade Sanctuary. Original Readme below.
 

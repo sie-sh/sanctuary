@@ -1,13 +1,13 @@
 /* @settings
-name: Sierra's Sanctuary 
-id: colorthemes
+name: Sanctuary Redux 
+id: sanctuary-redux
 settings:
   -
     id: main-color
     title: Theme Color
     description: "The domiannt color of your theme. (Dark Theme only)"
     type: class-select
-    default: purple-mystic
+    default: red-passion
     options:
       -
         label: Red
