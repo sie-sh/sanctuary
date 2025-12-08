@@ -5,26 +5,13 @@
  * ------------------- */
 body.theme-compact,
 body.theme-ultra-compact {
-  --tab-stacked-header-width: 40px; /* Keep normal width in stacked mode  */
+  --tab-stacked-header-width: 40px; /* Keep normal width in stacked mode */
   --header-height: 33px;
-  --theme-compact-gap: 2px;
+  --theme-compact-gap: 3px;
 
   &.theme-ultra-compact {
     --header-height: 28px;
     --theme-compact-gap: 1px;
-  }
-
-  &.mod-windows,
-  &.mod-linux {
-    --frame-right-space: 80px !important;
-  }
-
-  .pdf-toolbar {
-    --swatch-width: 20px !important;
-
-    input {
-      height: var(--swatch-width) !important;
-    }
   }
 
   /* TODO: fix windows icons */
@@ -40,6 +27,29 @@ body.theme-ultra-compact {
     }
   }
 
+  /* Main Tabs and Tab Containers */
+  .workspace .mod-root {
+    .workspace-tab-header-container-inner {
+      margin-top: var(--theme-compact-gap);
+    }
+  }
+
+  /* Sidebar icon containes */
+  .mod-sidedock .workspace-tab-header-container {
+    .workspace-tab-header-container-inner {
+      margin-top: var(--theme-compact-gap);
+    }
+  }
+
+  /* Left sidedock icons */
+  &.is-hidden-frameless:not(.is-fullscreen):not(.is-macos)
+    .mod-sidedock
+    .workspace-tab-header-container {
+    padding-left: var(--theme-compact-gap) !important;
+  }
+
+  /* View header, make skinny */
+
   .view-header {
     --view-header-height: 42px !important;
     --cmdr-spacing: 0px;
@@ -51,32 +61,17 @@ body.theme-ultra-compact {
   }
 
   &.theme-ultra-compact .view-header {
-    --view-header-height: 38px !important;
-  }
-  /* Clip top bord of ribbon on macos for visual simplicity
-    * abandoned */
-  &.mod-macos .workspace-ribbon.mod-left::before {
-    /* display: none; */
+    --view-header-height: 36px !important;
+    /* border: none; */
   }
 
-  /* Sidebar icon gaps */
-  .mod-sidedock .workspace-tab-header-container {
-    padding-left: var(--theme-compact-gap);
+  /* Make pdf toolbar smaller  */
+  .pdf-toolbar {
+    --swatch-width: 20px !important;
 
-    .workspace-tab-header-container-inner {
-      margin: max(0, calc(var(--theme-compact-gap)) - 1px) 0
-        var(--theme-compact-gap);
+    input {
+      height: var(--swatch-width) !important;
     }
-  }
-
-  /* Tab container gaps  */
-  .workspace-split:not(.mod-sidedock) .workspace-tab-header-container-inner {
-    margin-top: 0px !important;
-  }
-  &.theme-ultra-compact
-    .workspace-split:not(.mod-sidedock)
-    .workspace-tab-header-container-inner {
-    margin-top: -1px !important;
   }
 
   /* Compact Statusbar */
