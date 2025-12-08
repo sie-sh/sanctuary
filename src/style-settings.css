@@ -93,11 +93,11 @@ settings:
     title: Tweaks
     type: heading
     level: 1
-    collapsed: true
+    collapsed: false
   - 
-    id: theme-compact-setting
-    title: Compact
-    description: Makes tabs and headers compact. Inspired by Replete's Minimal Theme Snippets. *Recommended - Compact*
+    id: theme-spacing
+    title: Spacing
+    description: Determines spacing for tabsnd headers. Inspired by Replete's Minimal Theme Snippets. 
     type: class-select
     default: theme-expanded
     options:
