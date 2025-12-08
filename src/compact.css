@@ -1,5 +1,5 @@
 /* -------------------
- * Compact mode. Credit to @replete's Ultra Compact Minial snippets: 
+ * Compact mode. Heavily inspired by @replete's Ultra Compact Minial snippets: 
  * https://github.com/replete/obsidian-minimal-theme-css-snippets
  * Support @replete - https://buymeacoffee.com/replete 
  * ------------------- */
@@ -12,19 +12,6 @@ body.theme-ultra-compact {
   &.theme-ultra-compact {
     --header-height: 28px;
     --theme-compact-gap: 1px;
-  }
-
-  /* TODO: fix windows icons */
-  .titlebar {
-    /* Fix and make the windows buttons small   */
-    .mod-right {
-      /* width: 80px; */
-      /* right: 10px; */
-
-      .titlebar-button {
-        /* padding: 0 calc(80px / 9); */
-      }
-    }
   }
 
   /* Main Tabs and Tab Containers */
@@ -42,14 +29,24 @@ body.theme-ultra-compact {
   }
 
   /* Left sidedock icons */
-  &.is-hidden-frameless:not(.is-fullscreen):not(.is-macos)
-    .mod-sidedock
+  &.is-hidden-frameless:not(.is-fullscreen) {
+    &.mod-macos {
+      --frame-left-space: 70px;
+    }
+
+    .mod-sidedock .workspace-tab-header-container {
+      padding-left: var(--theme-compact-gap);
+    }
+  }
+
+  /* Undo override for top left sidedock tab head */
+  &.is-hidden-frameless:not(.is-fullscreen)
+    .workspace-tabs.mod-top-left-space
     .workspace-tab-header-container {
-    padding-left: var(--theme-compact-gap) !important;
+    padding-left: calc(var(--size-4-2) + var(--frame-left-space));
   }
 
   /* View header, make skinny */
-
   .view-header {
     --view-header-height: 42px !important;
     --cmdr-spacing: 0px;
