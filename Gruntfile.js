@@ -37,6 +37,7 @@ Read more at https://git.new/primary/obsidian
 const files = [
   // dont
   "src/fonts.css",
+  "src/vars.css",
   "src/theme.css",
   "src/lists.css",
   "src/compact.css",
@@ -102,7 +103,7 @@ module.exports = function (grunt) {
       hot_reload: {
         expand: true,
         src: ["dist/theme.css"],
-        dest: process.env.HOME + process.env.OBSIDIAN_PATH + "Sanctuary Redux/",
+        dest: process.env.HOME + process.env.OBSIDIAN_PATH + "/Sanctuary Redux/",
         rename: function (dest, src) {
           return dest + "theme.css";
         },
