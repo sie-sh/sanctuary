@@ -4,6 +4,13 @@
   --tab-max-width: 800px;
 }
 
+/* View Header Styles */
+.vh-stealth:not(.is-phone) {
+  .workspace-leaf .view-header {
+    border: none;
+  }
+}
+
 /* Embed styles */
 .embeds-conform,
 .embeds-stealth {

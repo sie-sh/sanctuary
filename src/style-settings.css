@@ -110,6 +110,24 @@ settings:
       -
         label: Ultra Compact
         value: theme-ultra-compact
+
+
+  - 
+    id: view-header-style
+    title: View Header Styling
+    description: Changes the look of the tab view header (title, forward/back, etc).
+    type: class-select
+    default: vh-default
+    options:
+      -
+        label: Default
+        value: vh-default
+      -
+        label: Stealth
+        value: vh-stealth
+      -
+        label: Floating Glass
+        value: vh-glass
   - 
     id: embed-style
     title: Embed Styling
