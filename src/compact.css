@@ -43,12 +43,12 @@ body.theme-ultra-compact {
   &.is-hidden-frameless:not(.is-fullscreen)
     .workspace-tabs.mod-top-left-space
     .workspace-tab-header-container {
-    padding-left: calc(var(--size-4-2) + var(--frame-left-space));
+    padding-left: calc(var(--theme-compact-gap) + var(--frame-left-space));
   }
 
   /* View header, make skinny */
   .view-header {
-    --view-header-height: 42px !important;
+    --view-header-height: 42px;
     --cmdr-spacing: 0px;
 
     svg {
@@ -58,7 +58,7 @@ body.theme-ultra-compact {
   }
 
   &.theme-ultra-compact .view-header {
-    --view-header-height: 36px !important;
+    --view-header-height: 36px;
     /* border: none; */
   }
 
