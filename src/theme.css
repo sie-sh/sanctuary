@@ -1,8 +1,20 @@
 /*
 * Filename: theme.css
-* Author: Elevict
-* Last Updated: 2024-07-12
+* Author: sisi-sh, Elevict
+* Last Updated: December 2025
 */
+
+:root {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/*  =============== App =============== */
+
+/* Recolor the background */
+body,
+body.is-translucent {
+  background-color: var(--background-secondary);
+}
 
 /* ============== Bolder Bold ============== */
 strong,
@@ -143,12 +155,6 @@ img {
   }
 }
 
-/* ============== Header ============== */
-.view-header-title,
-.view-header-title-parent {
-  color: var(--header-title-color);
-}
-
 /* ============== Indentation Guides ============== */
 .markdown-rendered.show-indentation-guide li > ul::before,
 .markdown-rendered.show-indentation-guide li > ol::before {
@@ -165,6 +171,21 @@ img {
   background: var(--background-secondary);
 }
 
+/*  =============== Vault Profile =============== */
+
+body:not(.is-mobile)
+  .workspace-split.mod-left-split
+  .workspace-sidedock-vault-profile {
+  border-radius: 10px;
+  border: solid 1px var(--background-modifier-border);
+  padding: 5px;
+  margin: 0px 0px 5px 0px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-interface-theme);
+  align-self: center; /* Center the element in the flex container */
+  width: calc(100% - 15px);
+}
+
 /* ============== Horizontal Rule ============== */
 .markdown-preview-view hr,
 .cm-line hr {
@@ -178,7 +199,7 @@ img {
 body:not(.is-mobile) .view-content {
   border-radius: 16px;
   width: calc(100% - 6px);
-  margin: 0 auto;
+  margin: 3px auto;
 }
 
 /* Remove borders on sidebars and headers */
@@ -207,9 +228,10 @@ body:not(.is-mobile) .view-content {
   border-radius: 16px;
 }
 
-/* Center the editor */
-.markdown-preview-view {
-  /* Redux: Remove any border from the view   */
+/* ============== View Header ============== */
+.view-header-title,
+.view-header-title-parent {
+  color: var(--header-title-color);
 }
 
 /* Center the header and revamp it */
@@ -224,7 +246,7 @@ body {
   ); /* Make the width smaller than the parent container */
   height: var(--view-header-height);
   max-height: var(--view-header-height);
-  margin: 3px; /* Center the box horizontally and vertically */
+  margin: 3px 3px 0; /* Center the box horizontally and vertically */
 
   display: flex;
   align-items: center;
@@ -256,28 +278,6 @@ body {
   }
 }
 
-/*  =============== Misc =============== */
-
-/* Recolor the background */
-body,
-body.is-translucent {
-  background-color: var(--background-secondary);
-}
-
-/* Vault profile */
-body:not(.is-mobile)
-  .workspace-split.mod-left-split
-  .workspace-sidedock-vault-profile {
-  border-radius: 10px;
-  border: solid 1px var(--background-modifier-border);
-  padding: 5px;
-  margin: 0px 0px 5px 0px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  font-family: var(--font-interface-theme);
-  align-self: center; /* Center the element in the flex container */
-  width: calc(100% - 15px);
-}
-
 /*  =============== Tabs and Icons ============== */
 
 body {
@@ -292,7 +292,6 @@ body {
 }
 
 /* Redux: Simplify styles for this by a lot; and make tabs a bit more snug */
-
 body:not(.mod-stacked) {
   .workspace .mod-root {
     /* Tweaking workspace tab header  */
