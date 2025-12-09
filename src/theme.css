@@ -264,6 +264,7 @@ body.is-translucent {
   background-color: var(--background-secondary);
 }
 
+/* Vault profile */
 body:not(.is-mobile)
   .workspace-split.mod-left-split
   .workspace-sidedock-vault-profile {
@@ -292,48 +293,53 @@ body {
 
 /* Redux: Simplify styles for this by a lot; and make tabs a bit more snug */
 
-.workspace .mod-root .workspace-tab-header-container {
-  /* Add 2px for that sexy first tab curve  */
-  padding-left: 10px;
+body:not(.mod-stacked) {
+  .workspace .mod-root {
+    /* Tweaking workspace tab header  */
+    .workspace-tab-header-container {
+      /* Add 2px for that sexy first tab curve  */
+      padding-left: 10px;
 
-  .workspace-tab-header-container-inner {
-    /* Increased side padding fixes overflow 
+      .workspace-tab-header-container-inner {
+        /* Increased side padding fixes overflow 
      * caused by increased --tab-curve  */
-    padding: 1px 20px 0;
+        padding: 1px 20px 0;
+      }
+    }
+    /* All Workspace Tabs */
+    .workspace-tab-header {
+      border-radius: 10px 10px 0px 0px;
+      padding: 0;
+      width: calc(var(--tab-width) - 10px);
+
+      /* Redux: no border on inactive tabs */
+      border: solid 1px transparent;
+      border-bottom: 0;
+
+      .workspace-tab-header-inner {
+        border-radius: 10px 10px 0px 0px;
+        padding: 0 9px;
+      }
+    }
+
+    /* Active tab behavior */
+    .workspace-tab-header.is-active {
+      /* Fattening border effect on active tab  */
+      border: solid 1px var(--background-modifier-border);
+      border-bottom: 0;
+      z-index: 1;
+    }
+
+    /* Inactive tabs */
+    .workspace-tab-header:not(.is-active) {
+      background-color: var(--inactive-tab-background);
+    }
+
+    /* Remove lines in-between tabs */
+    .workspace-tab-header-inner::after {
+      display: none;
+    }
   }
-}
-
-.workspace .mod-root .workspace-tab-header {
-  border-radius: 10px 10px 0px 0px;
-  padding: 0;
-  width: calc(var(--tab-width) - 10px);
-
-  /* Redux: no border on inactive tabs */
-  border: solid 1px transparent;
-  border-bottom: 0;
-
-  .workspace-tab-header-inner {
-    border-radius: 10px 10px 0px 0px;
-    padding: 0 9px;
-  }
-}
-
-/* Active tab behavior */
-.workspace .mod-root .workspace-tab-header.is-active {
-  /* Fattening border effect on active tab  */
-  border: solid 1px var(--background-modifier-border);
-  border-bottom: 0;
-  z-index: 1;
-}
-
-/* Inactive tabs */
-.mod-root .workspace-tab-header:not(.is-active) {
-  background-color: var(--inactive-tab-background);
-}
-
-/* Remove lines in-between tabs */
-.workspace .mod-root .workspace-tab-header-inner::after {
-  display: none;
 }
 
 /* Remove resize borders on left and right*/
@@ -411,6 +417,7 @@ body {
 
 /* Redux: Rounded stacked tabs */
 .mod-stacked {
+  /* TODO: fix border overlapping issues  */
   .workspace-tab-container {
     /* border: solid 1px var(--background-modifier-border); */
     border-right: solid 1px var(--background-modifier-border);
@@ -433,6 +440,7 @@ body {
   .workspace-tab-header-inner {
     width: min-content !important;
     border-radius: 18px 0 0 18px !important;
+
     border-right: none !important;
     border-top: none !important;
     border-bottom: none !important;
