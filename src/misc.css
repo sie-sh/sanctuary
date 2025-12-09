@@ -39,10 +39,6 @@
   .inline-embed > .markdown-embed-content > .markdown-preview-view {
     padding: 0;
   }
-  .markdown-preview-sizer,
-  .markdown-preview-section {
-    min-height: 0 !important;
-  }
 }
 
 /* Task Genius Progress Bars */
