@@ -256,7 +256,7 @@ body {
   }
 }
 
-/*  =============== General =============== */
+/*  =============== Misc =============== */
 
 /* Recolor the background */
 body,
@@ -286,23 +286,31 @@ body {
   --tab-outline-color: var(--divider-color);
   --tab-outline-width: 1px;
   --tab-curve: 10px;
-  --tab-width: 240px;
-  --tab-max-width: 400px;
+  /* --tab-width: 240px; */
+  /* --tab-max-width: 400px; */
 }
 
-/* Vertical decrease makes tabs appear "attached" to the frame 
- * Redux: Simplify styles for this by a lot; and make tabs a bit more snug */
+/* Redux: Simplify styles for this by a lot; and make tabs a bit more snug */
 
-.workspace-tab-header-container-inner {
-  margin-left: 2px;
+.workspace .mod-root .workspace-tab-header-container {
+  /* Add 2px for that sexy first tab curve  */
+  padding-left: 10px;
+
+  .workspace-tab-header-container-inner {
+    /* Increased side padding fixes overflow 
+     * caused by increased --tab-curve  */
+    padding: 1px 20px 0;
+  }
 }
 
 .workspace .mod-root .workspace-tab-header {
   border-radius: 10px 10px 0px 0px;
   padding: 0;
+  width: calc(var(--tab-width) - 10px);
 
   /* Redux: no border on inactive tabs */
   border: solid 1px transparent;
+  border-bottom: 0;
 
   .workspace-tab-header-inner {
     border-radius: 10px 10px 0px 0px;
@@ -312,10 +320,10 @@ body {
 
 /* Active tab behavior */
 .workspace .mod-root .workspace-tab-header.is-active {
+  /* Fattening border effect on active tab  */
   border: solid 1px var(--background-modifier-border);
   border-bottom: 0;
   z-index: 1;
-  /* height: calc(100% + 6px); */
 }
 
 /* Inactive tabs */
