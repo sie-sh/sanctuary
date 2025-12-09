@@ -51,18 +51,3 @@
   border: 1px solid var(--checkbox-border-color);
   opacity: 0.5;
 }
-
-/* DFW full width  */
-.distraction-free-mode {
-  .workspace-leaf-content {
-    margin: 0 !important;
-    max-width: none !important;
-
-    .view-content {
-      width: 100%;
-    }
-  }
-  .pdf-toolbar {
-    display: none;
-  }
-}
