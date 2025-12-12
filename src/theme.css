@@ -277,6 +277,7 @@ body {
 /* Tweaking workspace tab header  */
 
 body:not(.is-phone)
+  .mod-root
   .workspace-tabs:not(.mod-stacked)
   .workspace-tab-header-container {
   /* Add 2px for that sexy first tab curve  */
@@ -284,6 +285,7 @@ body:not(.is-phone)
 }
 
 body:not(.is-phone)
+  .mod-root
   .workspace-tabs:not(.mod-stacked)
   .workspace-tab-header-container
   .workspace-tab-header-container-inner {
@@ -294,7 +296,10 @@ body:not(.is-phone)
 
 /* All Workspace Tabs */
 
-body:not(.is-phone) .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
+body:not(.is-phone)
+  .mod-root
+  .workspace-tabs:not(.mod-stacked)
+  .workspace-tab-header {
   border-radius: 10px 10px 0px 0px;
   padding: 0;
   width: calc(var(--tab-width) - 10px);
@@ -305,6 +310,7 @@ body:not(.is-phone) .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
 }
 
 body:not(.is-phone)
+  .mod-root
   .workspace-tabs:not(.mod-stacked)
   .workspace-tab-header
   .workspace-tab-header-inner {
@@ -314,6 +320,7 @@ body:not(.is-phone)
 
 /* Active tab behavior */
 body:not(.is-phone)
+  .mod-root
   .workspace-tabs:not(.mod-stacked)
   .workspace-tab-header.is-active {
   /* Fattening border effect on active tab  */
@@ -324,6 +331,7 @@ body:not(.is-phone)
 
 /* Inactive tabs */
 body:not(.is-phone)
+  .mod-root
   .workspace-tabs:not(.mod-stacked)
   .workspace-tab-header:not(.is-active) {
   background-color: var(--inactive-tab-background);
@@ -331,6 +339,7 @@ body:not(.is-phone)
 
 /* Remove lines in-between tabs */
 body:not(.is-phone)
+  .mod-root
   .workspace-tabs:not(.mod-stacked)
   .workspace-tab-header-inner::after {
   display: none;

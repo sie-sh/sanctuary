@@ -5,7 +5,7 @@
 }
 
 /* View Header Styles */
-.vh-stealth:not(.is-phone) .workspace-leaf .view-header {
+.vh-stealth:not(.is-phone) .mod-root .workspace-leaf .view-header {
   border: none;
 }
 
