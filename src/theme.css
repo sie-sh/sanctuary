@@ -240,7 +240,7 @@ body {
   --view-header-height: 46px;
 }
 
-body:not(.is-phone) .workspace-leaf .view-header {
+body:not(.is-phone) .mod-root .workspace-leaf .view-header {
   margin: 3px 3px 0; /* Center the box horizontally and vertically */
 
   height: var(--view-header-height);
