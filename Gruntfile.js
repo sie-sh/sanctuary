@@ -23,21 +23,16 @@ Read more at https://git.new/primary/obsidian
 
 ────────────────────────────────────*/
 
-// ═══════════════════════════════════════════════════════════════════
-// GLOBAL CONFIGURATION TOGGLES
-// ═══════════════════════════════════════════════════════════════════
-
-// Set to false to skip copying files to Obsidian vault (faster builds)
-const ENABLE_HOT_RELOAD = true;
-
-// Set to false to skip generating unminified Sanctuary.css (faster builds)
-const GENERATE_DEV_CSS = false;
-
-// ═══════════════════════════════════════════════════════════════════
-
 module.exports = function (grunt) {
   // Auto-load all grunt tasks from package.json
   require("load-grunt-tasks")(grunt);
+
+  // Helper: Read boolean env var with default
+  const getBool = (name, defaultValue) => {
+    const val = process.env[name];
+    if (val === undefined) return defaultValue;
+    return val.toLowerCase() === "true" || val === "1";
+  };
 
   // Auto-discover all CSS files in src/ and subdirectories
   const cssFiles = grunt.file.expand(
@@ -45,13 +40,6 @@ module.exports = function (grunt) {
     "src/**/*.css",
     "!src/original.css", // Exclude backup/original files
   );
-
-  // Build dynamic config based on toggles
-  const concatFiles = {};
-  if (GENERATE_DEV_CSS) {
-    concatFiles["dist/Sanctuary.css"] = cssFiles;
-  }
-  concatFiles["dist/theme.css"] = cssFiles;
 
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
@@ -63,10 +51,12 @@ module.exports = function (grunt) {
       },
     },
 
-    // Concatenate CSS files
+    // Concatenate CSS files - always generates theme.css
     concat_css: {
       dist: {
-        files: concatFiles,
+        files: {
+          "dist/theme.css": cssFiles,
+        },
       },
     },
 
@@ -95,47 +85,40 @@ module.exports = function (grunt) {
       },
       css: {
         files: ["src/**/*.css", "src/**/*.scss"],
-        tasks: ENABLE_HOT_RELOAD
-          ? [
-              "concat_css",
-              "postcss",
-              "inject_settings",
-              "copy_manifest",
-              "hot_reload",
-            ]
-          : ["build"],
+        tasks: ["concat_css", "generate_dev_css", "postcss", "inject_settings", "copy_manifest", "hot_reload"],
       },
       manifest: {
         files: ["manifest.json"],
-        tasks: ENABLE_HOT_RELOAD
-          ? ["copy_manifest", "hot_reload"]
-          : ["copy_manifest"],
+        tasks: ["copy_manifest", "hot_reload"],
       },
       config: {
         files: [".env", "Gruntfile.js"],
-        tasks: ENABLE_HOT_RELOAD
-          ? [
-              "env",
-              "concat_css",
-              "postcss",
-              "inject_settings",
-              "copy_manifest",
-              "hot_reload",
-            ]
-          : ["env", "build"],
+        tasks: ["env", "concat_css", "generate_dev_css", "postcss", "inject_settings", "copy_manifest", "hot_reload"],
         options: { reload: true },
       },
     },
   });
 
-  // Build task: concat, minify, inject settings, copy manifest
-  const buildTasks = [
+  // Generate unminified Sanctuary.css (optional based on env)
+  grunt.registerTask("generate_dev_css", "Generate unminified Sanctuary.css", function () {
+    if (!getBool("GENERATE_DEV_CSS", true)) {
+      grunt.log.writeln("Skipping Sanctuary.css (GENERATE_DEV_CSS = false)");
+      return;
+    }
+    const content = cssFiles.map(file => grunt.file.read(file)).join("\n");
+    grunt.file.write("dist/Sanctuary.css", content);
+    grunt.log.ok("Created dist/Sanctuary.css");
+  });
+
+  // Build task: load env, concat, dev css, minify, inject settings, copy manifest
+  grunt.registerTask("build", [
+    "env",
     "concat_css",
+    "generate_dev_css",
     "postcss",
     "inject_settings",
     "copy_manifest",
-  ];
-  grunt.registerTask("build", buildTasks);
+  ]);
 
   // Copy manifest.json to dist/
   grunt.registerTask("copy_manifest", "Copy manifest to dist", function () {
@@ -174,7 +157,7 @@ module.exports = function (grunt) {
 
   // Hot reload: copy to Obsidian vault
   grunt.registerTask("hot_reload", "Copy theme to vault", function () {
-    if (!ENABLE_HOT_RELOAD) {
+    if (!getBool("ENABLE_HOT_RELOAD", true)) {
       grunt.log.writeln("Hot reload disabled (ENABLE_HOT_RELOAD = false)");
       return;
     }
@@ -224,11 +207,13 @@ module.exports = function (grunt) {
   });
 
   // Development: watch with env loading
-  const defaultTasks = ["env", "build"];
-  if (ENABLE_HOT_RELOAD) {
-    defaultTasks.push("watch");
-  }
-  grunt.registerTask("default", defaultTasks);
+  grunt.registerTask("default", function() {
+    const tasks = ["env", "build"];
+    if (getBool("ENABLE_HOT_RELOAD", true)) {
+      tasks.push("watch");
+    }
+    grunt.task.run(tasks);
+  });
 
   // One-time build
   grunt.registerTask("compile", ["env", "build"]);

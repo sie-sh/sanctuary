@@ -1,2 +1,17 @@
 # Path directly to vault themes folder
-OBSIDIAN_PATH="ws/o/sisi2/.obsidian/themes"
+# This is where the theme will be copied for hot reload
+OBSIDIAN_PATH=""
+
+# ═══════════════════════════════════════════════════════════════════
+# FEATURE FLAGS
+# ═══════════════════════════════════════════════════════════════════
+
+# ENABLE_HOT_RELOAD: Copy theme files to Obsidian vault automatically
+# - "true":  Copies dist/theme.css and manifest.json to vault on every change
+# - "false": Skips copying (useful when vault path has permission issues)
+ENABLE_HOT_RELOAD="true"
+
+# GENERATE_DEV_CSS: Create unminified Sanctuary.css alongside theme.css
+# - "true":  Generates both dist/Sanctuary.css (readable) and dist/theme.css (minified)
+# - "false": Only generates dist/theme.css (faster builds)
+GENERATE_DEV_CSS="true"
