@@ -492,6 +492,8 @@ body:not(.is-phone)
   z-index: -1;
 }
 
+/* Minimal properties  */
+/* TODO: move to misc and behind style settings flag */
 .metadata-container {
   margin: 0;
   padding: 0;
