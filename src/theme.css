@@ -362,13 +362,23 @@ body:not(.is-phone)
   padding-bottom: 0;
 }
 
+/* Icon tab radius */
+.mod-left-split .workspace-tab-header-container .workspace-tab-header,
+.mod-right-split .workspace-tab-header-container .workspace-tab-header {
+  border-radius: var(--radius-m);
+
+  .workspace-tab-header-inner {
+    border-radius: var(--radius-s);
+  }
+}
+
 /* All icons */
 .mod-left-split .workspace-tab-header,
 .mod-right-split .workspace-tab-header,
 .mod-left-split .workspace-tab-header:hover,
 .mod-right-split .workspace-tab-header:hover {
   border: 1px solid var(--color-base-40);
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 /* The icons that are active */
@@ -378,7 +388,7 @@ body:not(.is-phone)
 .mod-right-split .workspace-tab-header.is-active:hover {
   background-color: var(--color-base-30);
   border: 1px solid var(--color-base-40);
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 /* Fixes strange border at the upper left */
@@ -470,4 +480,62 @@ body:not(.is-phone)
   transform: translateX(100%);
   background: var(--background-primary);
   z-index: -1;
+}
+
+.metadata-container {
+  margin: 0;
+  padding: 0;
+
+  &:not(.is-collapsed) {
+    padding-bottom: 4px;
+  }
+
+  .metadata-add-button {
+    opacity: 0;
+    transition: 300ms ease opacity;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .metadata-properties-heading {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-m);
+
+    /* .metadata-properties-title { */
+    /*   opacity: 0.4; */
+    /*   color: var(--h4-color); */
+    /*   transition: 150ms ease opacity; */
+    /*   &:hover { */
+    /*     opacity: 1; */
+    /*   } */
+    /* } */
+
+    .metadata-properties-title {
+      display: none;
+    }
+
+    .collapse-indicator.is-collapsed svg.svg-icon {
+      color: var(--collapse-icon-color);
+    }
+
+    &:not(:hover) .collapse-indicator.is-collapsed svg.svg-icon {
+      opacity: 0;
+    }
+
+    &:hover {
+      background: var(--background-primary-alt);
+    }
+
+    &:after {
+      content: "···";
+      display: block;
+      /* height: 1px; */
+      /* margin: 8px 0; */
+      width: 160px;
+      /* background: var(--background-modifier-border); */
+    }
+  }
 }
