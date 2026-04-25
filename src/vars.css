@@ -223,5 +223,6 @@ body {
   );
 
   --divider-color: var(--background-modifier-border);
+  --bases-table-border-color: var(--background-modifier-border);
   --tab-radius: var(--radius-m);
 }
