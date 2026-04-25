@@ -220,6 +220,12 @@ body:not(.is-mobile) .view-content {
 .mod-root .workspace-tabs .workspace-leaf {
   border-radius: 20px;
   border: solid 1px var(--background-modifier-border);
+  box-sizing: border-box;
+}
+
+/* Avoid clipping leaf border on window boeder on windows */
+.mod-windows .mod-root {
+  padding: 0 0 1px 1px;
 }
 
 /* Banner plugin set images to round */
@@ -304,7 +310,7 @@ body:not(.is-phone)
   padding: 0;
   width: calc(var(--tab-width) - 10px);
 
-  /* Redux: no border on inactive tabs */
+  /* Redux: no border on inactive tabs, but spacing consistent */
   border: solid 1px transparent;
   border-bottom: 0;
 }
@@ -348,6 +354,10 @@ body:not(.is-phone)
 .workspace-split.mod-left-split > .workspace-leaf-resize-handle,
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
   border: none;
+}
+
+.mod-root .workspace-leaf-resize-handle {
+  border-color: transparent;
 }
 
 /* Color of header container at top */
