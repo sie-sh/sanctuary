@@ -225,7 +225,7 @@ body {
   --divider-color: var(--background-modifier-border);
   --tab-radius: var(--radius-m);
   --radius-s: 6px;
-  --menu-radius: 10px;
+  --menu-radius: 12px;
   --setting-items-radius: 16px;
   --button-radius: 8px;
   --input-radius: 8px;
