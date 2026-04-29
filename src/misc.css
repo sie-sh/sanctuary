@@ -5,8 +5,12 @@
 }
 
 /* View Header Styles */
-.vh-stealth:not(.is-phone) .mod-root .workspace-leaf .view-header {
-  border: none;
+.vh-stealth:not(.is-phone) {
+  --view-header-height: 42px;
+
+  .mod-root .workspace-leaf .view-header {
+    border: none;
+  }
 }
 
 /* Embed styles */

@@ -135,8 +135,8 @@
 body {
   /* ============== Default Font Variables ============== */
   --font-text: "Computer Modern", "Inter", Sans-Serif;
-  --font-interface-theme: "Jetbrains Mono", "Inter", Sans-Serif;
-  --font-monospace-theme: "Jetbrains Mono", "Source Code Pro", monospace;
+  --font-interface-theme: "Ioskeley Mono", "Inter", Sans-Serif;
+  --font-monospace-theme: "Ioskeley Mono", "Source Code Pro", monospace;
   --font-callout-theme: "Computer Modern", "Sans-Serif";
   /* ============== Typography ============== */
   --unified-heading-space: 10px;

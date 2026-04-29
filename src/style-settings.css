@@ -75,13 +75,13 @@ settings:
     title: Interface Font
     description: Font used for UI elements
     type: variable-text
-    default: 'Jetbrains Mono'
+    default: 'Ioskeley Mono'
   -
     id: font-monospace-theme
     title: Monospace Font
     description: Font used code blocks and inline code
     type: variable-text
-    default: 'Jetbrains Mono'
+    default: 'Ioskeley Mono'
   -
     id: font-callout-theme
     title: Callout Font
