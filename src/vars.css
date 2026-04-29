@@ -1,4 +1,3 @@
-
 /* ============== Theme Colors ============== */
 
 /* Default Base Color */
@@ -187,7 +186,7 @@ body {
   --titlebar-background-focused: var(--color-base-00);
   --scrollbar-thumb-bg: var(--color-base-30);
   --scrollbar-active-thumb-bg: var(--color-base-40);
-  --table-border-color: var(--color-base-60);
+  --table-border-color: var(--color-base-30);
   --header-title-color: hsl(var(--hue-bg), var(--sat-fg), 65%);
   --title-color: hsl(var(--hue-bg), var(--sat-fg), 65%);
 
@@ -206,7 +205,7 @@ body {
 
   --text-normal: #faf4ed;
   --background-modifier-form-field: var(--color-base-20);
-  --background-modifier-hover: var(--color-base-40);
+  --background-modifier-hover: var(--color-base-30);
   --background-modifier-border: var(--color-base-30);
   --nav-indentation-guide-color: var(--color-base-30);
   --indentation-guide-color: var(--color-base-30);
@@ -222,7 +221,19 @@ body {
     transparent
   );
 
+  /* misc vars for taste */
   --divider-color: var(--background-modifier-border);
-  --bases-table-border-color: var(--background-modifier-border);
   --tab-radius: var(--radius-m);
+  --radius-s: 6px;
+  --menu-radius: 10px;
+  --setting-items-radius: 16px;
+  --button-radius: 8px;
+  --input-radius: 8px;
+
+  /* plugin vars, to be moved elsewhere  */
+  --nn-selected-file-bg-color: --background-modifier-border !important;
+  --he-title-bar-active-bg: var(--color-base-20);
+  --he-title-bar-active-pinned-bg: var(--color-base-20);
+  --he-title-bar-inactive-bg: var(--color-base-10);
+  --he-title-bar-inactive-pinned-bg: var(--color-base-10);
 }
