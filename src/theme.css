@@ -6,6 +6,8 @@
 
 :root {
   -webkit-font-smoothing: subpixel-antialiased;
+  font-smooth: always;
+  shape-rendering: geometricPosition;
 }
 
 /*  =============== App =============== */
