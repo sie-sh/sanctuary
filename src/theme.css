@@ -197,8 +197,14 @@ body:not(.is-phone)
 
 /*  =============== Editor =============== */
 
-body:not(.is-mobile) .mod-root .view-content {
+body:not(.is-mobile)
+  .mod-root
+  .workspace-tab-container
+  .view-content:not(.bases-view .view-content) {
   border-radius: 16px;
+}
+
+body:not(.is-mobile) .mod-root .workspace-tab-container .view-content {
   width: calc(100% - 6px);
   margin: 3px auto;
 }
