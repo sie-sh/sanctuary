@@ -232,7 +232,7 @@ body:not(.is-mobile) .mod-root .workspace-tab-container .view-content {
 
 /* Avoid clipping leaf border on window boeder on windows */
 .mod-windows .mod-root {
-  padding: 0 0 1px 1px;
+  padding: 1px;
 }
 
 /* Banner plugin set images to round */
