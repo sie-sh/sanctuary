@@ -1,0 +1,30 @@
+/* Embed styles */
+.embeds-conform .markdown-embed,
+.embeds-stealth .markdown-embed {
+  border: none;
+  padding: none;
+  margin: none;
+}
+
+.embeds-conform .inline-embed > .markdown-embed-content > .markdown-source-view,
+.embeds-stealth
+  .inline-embed
+  > .markdown-embed-content
+  > .markdown-preview-view {
+  padding: 0;
+}
+
+.embeds-conform {
+  .markdown-embed {
+    padding: 10px 5px;
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+    transition: 200ms ease-out;
+    transition-property: backround outline;
+    &:hover {
+      background: var(--color-base-05);
+      border-color: var(--background-modifier-border);
+    }
+  }
+}

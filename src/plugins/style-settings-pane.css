@@ -1,0 +1,86 @@
+/*  =============== Style settings plugin =============== */
+
+/* Style settings spacing */
+.style-settings-container:empty {
+    display: none;
+}
+
+.style-settings-container {
+    padding: 0;
+    .setting-item {
+        background: none;
+    }
+}
+
+.style-settings-heading[data-level] {
+    padding-top: var(--size-4-3);
+    padding-bottom: var(--size-4-3);
+    margin: 0.5em 0 !important;
+    &:hover {
+        background: var(--background-primary-alt);
+    }
+}
+.style-settings-heading[data-level="0"]:not(.is-collapsed) {
+    /* margin-bottom: var(--size-4-2); */
+}
+
+/* Remove borders and format margin bottom*/
+.style-settings-heading:not([data-level="0"]) {
+    border-top: none;
+    border-bottom: none;
+}
+.style-settings-heading:not([data-level="0"], .is-collapsed) {
+    margin-bottom: 0px;
+}
+
+.style-settings-heading[data-level="0"] + .style-settings-container {
+    padding: 0 0 1em;
+}
+.style-settings-heading[data-level="0"]
+    + .style-settings-container
+    > .setting-item:not(.setting-item-heading) {
+    background-color: var(--setting-items-background);
+}
+
+/* Set background and borders */
+.style-settings-heading:not([data-level="0"]) + .style-settings-container {
+    border-radius: 16px;
+    background-color: var(--setting-items-background);
+    overflow-x: hidden;
+}
+
+/* Add borders to style setting for better visability */
+.style-settings-heading[data-level="0"]:not(.is-collapsed)
+    + .style-settings-container {
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+.style-settings-heading[data-level="1"] {
+    border-top-color: var(--background-modifier-border);
+}
+.style-settings-heading:is(
+    [data-id="anuppuccin-theme-settings"],
+    [data-id="anuppuccin-theme-settings-extended"]
+) {
+    border-color: var(--background-modifier-border);
+}
+.style-settings-heading:is(
+        [data-id="anuppuccin-theme-settings"],
+        [data-id="anuppuccin-theme-settings-extended"]
+    ):not(.is-collapsed)
+    + .style-settings-container {
+    border-color: var(--background-modifier-border);
+}
+.style-settings-heading:is(
+        [data-id="anuppuccin-theme-settings"],
+        [data-id="anuppuccin-theme-settings-extended"]
+    )
+    .setting-item-name {
+    color: var(--background-modifier-border);
+}
+.style-settings-heading:not([data-level="0"]):nth-child(-n + 2),
+.style-settings-heading:not([data-level="0"], .is-collapsed)
+    + .style-settings-container
+    + .style-settings-heading,
+.style-settings-container .setting-item + .setting-item-heading {
+    border-top-width: 0;
+}

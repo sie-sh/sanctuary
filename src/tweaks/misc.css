@@ -1,0 +1,14 @@
+/* Big titles  */
+.wide-tabs {
+  --tab-width: 375px;
+  --tab-max-width: 800px;
+}
+
+/* View Header Styles */
+.vh-stealth:not(.is-phone) {
+  --view-header-height: 42px;
+
+  .mod-root .workspace-leaf .view-header {
+    border: none;
+  }
+}
