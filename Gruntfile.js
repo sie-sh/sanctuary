@@ -22,8 +22,13 @@ Remix from @kepano Minimal Theme Compiler
 Read more at https://git.new/primary/obsidian
 
 ────────────────────────────────────*/
+const themeName = "Sanctuary Redux";
 
 module.exports = function (grunt) {
+  const path = require("path");
+  const fs = require("fs");
+  const os = require("os");
+
   // Auto-load all grunt tasks from package.json
   require("load-grunt-tasks")(grunt);
 
@@ -32,6 +37,18 @@ module.exports = function (grunt) {
     const val = process.env[name];
     if (val === undefined) return defaultValue;
     return val.toLowerCase() === "true" || val === "1";
+  };
+
+  // Resolve vault path to absolute (supports ~/ and ~\ on any platform)
+  // Returns: {themesDir}/themeName/
+  const resolveVaultPath = (vaultPath) => {
+    if (!vaultPath) return null;
+    vaultPath = vaultPath.replace(/^["']|["']$/g, "");
+    // Expand ~/ or ~\ to home directory
+    if (vaultPath.startsWith("~/") || vaultPath.startsWith("~\\")) {
+      vaultPath = path.join(os.homedir(), vaultPath.slice(2));
+    }
+    return path.resolve(path.join(vaultPath, themeName));
   };
 
   // Auto-discover all CSS files in src/ and subdirectories
@@ -85,7 +102,14 @@ module.exports = function (grunt) {
       },
       css: {
         files: ["src/**/*.css", "src/**/*.scss"],
-        tasks: ["concat_css", "generate_dev_css", "postcss", "inject_settings", "copy_manifest", "hot_reload"],
+        tasks: [
+          "concat_css",
+          "generate_dev_css",
+          "postcss",
+          "inject_settings",
+          "copy_manifest",
+          "hot_reload",
+        ],
       },
       manifest: {
         files: ["manifest.json"],
@@ -93,26 +117,35 @@ module.exports = function (grunt) {
       },
       config: {
         files: [".env", "Gruntfile.js"],
-        tasks: ["env", "concat_css", "generate_dev_css", "postcss", "inject_settings", "copy_manifest", "hot_reload"],
+        tasks: [
+          "env",
+          "concat_css",
+          "generate_dev_css",
+          "postcss",
+          "inject_settings",
+          "copy_manifest",
+          "hot_reload",
+        ],
         options: { reload: true },
       },
     },
   });
 
-  // Generate unminified Sanctuary.css (optional based on env)
-  grunt.registerTask("generate_dev_css", "Generate unminified Sanctuary.css", function () {
-    if (!getBool("GENERATE_DEV_CSS", true)) {
-      grunt.log.writeln("Skipping Sanctuary.css (GENERATE_DEV_CSS = false)");
-      return;
-    }
-    const content = cssFiles.map(file => grunt.file.read(file)).join("\n");
-    grunt.file.write("dist/Sanctuary.css", content);
-    grunt.log.ok("Created dist/Sanctuary.css");
-  });
+  // Generate unminified Sanctuary.css
+  grunt.registerTask(
+    "generate_dev_css",
+    "Generate unminified Sanctuary.css",
+    function () {
+      if (!getBool("GENERATE_DEV_CSS", false)) return;
+      const content = cssFiles.map((file) => grunt.file.read(file)).join("\n");
+      grunt.file.write("dist/Sanctuary.css", content);
+      grunt.log.ok("Created dist/Sanctuary.css");
+    },
+  );
 
-  // Build task: load env, concat, dev css, minify, inject settings, copy manifest
+  // Build task: concat, dev css, minify, inject settings, copy manifest
+  // Note: env should be loaded before calling build (see default task)
   grunt.registerTask("build", [
-    "env",
     "concat_css",
     "generate_dev_css",
     "postcss",
@@ -157,21 +190,13 @@ module.exports = function (grunt) {
 
   // Hot reload: copy to Obsidian vault
   grunt.registerTask("hot_reload", "Copy theme to vault", function () {
-    if (!getBool("ENABLE_HOT_RELOAD", true)) {
-      grunt.log.writeln("Hot reload disabled (ENABLE_HOT_RELOAD = false)");
-      return;
-    }
-
     const done = this.async();
-    const path = require("path");
-    const fs = require("fs");
+    const destDir = resolveVaultPath(process.env.OBSIDIAN_PATH);
 
-    const obsidianPath = process.env.OBSIDIAN_PATH || "";
-    const destDir = path.join(
-      process.env.HOME,
-      obsidianPath,
-      "Sanctuary Redux",
-    );
+    if (!destDir) {
+      grunt.log.warn("OBSIDIAN_PATH not set, skipping hot reload");
+      return done();
+    }
 
     const files = [
       { src: "dist/theme.css", dest: "theme.css" },
@@ -196,24 +221,15 @@ module.exports = function (grunt) {
           if (errors.length) {
             errors.forEach((e) => grunt.log.error(e));
             grunt.log.warn("Hot reload failed, but CSS was built successfully");
-            // Don't fail - allow watch to continue and injection to persist
-            done();
-          } else {
-            done();
           }
+          done();
         }
       });
     });
   });
 
-  // Development: watch with env loading
-  grunt.registerTask("default", function() {
-    const tasks = ["env", "build"];
-    if (getBool("ENABLE_HOT_RELOAD", true)) {
-      tasks.push("watch");
-    }
-    grunt.task.run(tasks);
-  });
+  // Development: build once, then watch and hot reload
+  grunt.registerTask("default", ["env", "build", "watch"]);
 
   // One-time build
   grunt.registerTask("compile", ["env", "build"]);
