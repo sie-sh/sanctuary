@@ -15,9 +15,13 @@ settings:
       -
         label: Violet
         value: violet-aroma
+
+      -
+        label: Pink
+        value: pink-passion
       -
         label: Red
-        value: red-passion
+        value: red-blood
       -
         label: Orange
         value: orange-sunset
@@ -25,20 +29,20 @@ settings:
         label: Yellow
         value: yellow-glow
       -
-        label: Green
+        label: Leaf
         value: green-serenity
       -
-        label: Indigo
-        value: indigo-harmony
+        label: Mint
+        value: mint-spray
       -
         label: Aqua
         value: blue-ocean
       -
-        label: Gray
-        value: white-dawn
+        label: Indigo
+        value: indigo-harmony
       -
-        label: Black
-        value: black-night
+        label: Grey
+        value: grey-stone
   -
     id: color-intensity
     title: Intensity
@@ -58,9 +62,6 @@ settings:
       -
         label: Dawn
         value: intensity-dawn
-      -
-        label: Overcast
-        value: intensity-overcast
   -
     id: heading-fonts
     title: Fonts

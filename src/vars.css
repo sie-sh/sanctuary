@@ -13,38 +13,38 @@
   --hue-fg: 340;
 }
 
-.indigo-harmony {
-  --hue-bg-base: 272;
-  --hue-fg: 272;
+.pink-passion {
+  --hue-bg-base: 358;
+  --hue-fg: 358;
 }
 
+.red-blood {
+  --hue-bg-base: 8;
+  --hue-fg: 8;
+}
 .orange-sunset {
   --hue-bg-base: 30;
   --hue-fg: 30;
 }
 .yellow-glow {
-  --hue-bg-base: 70;
-  --hue-fg: 70;
+  --hue-bg-base: 74;
+  --hue-fg: 74;
 }
 .green-serenity {
   --hue-bg-base: 120;
   --hue-fg: 120;
 }
+.mint-spray {
+  --hue-bg-base: 180;
+  --hue-fg: 180;
+}
 .blue-ocean {
   --hue-bg-base: 228;
   --hue-fg: 220;
 }
-.white-dawn {
-  --hue-bg-base: 228;
-  --hue-fg: 220;
-}
-.black-night {
-  --hue-bg-base: 0;
-  --hue-fg: 0;
-}
-.red-passion {
-  --hue-bg-base: 5;
-  --hue-fg: 5;
+.indigo-harmony {
+  --hue-bg-base: 272;
+  --hue-fg: 272;
 }
 
 /* Default Intensity */
@@ -52,14 +52,19 @@
 .theme-light,
 .intensity-twilight {
   --base-lum: 0.05;
-  --max-lum: 1.2;
+  --max-lum: 1.1;
   --base-chroma: 0.09;
   --max-chroma: 0.3;
+
+  --base-fg-lum: 0.95;
+  --max-fg-lum: 0.6;
+  --base-fg-chroma: 0.01;
+  --max-fg-chroma: 0.3;
 }
 
 .intensity-abyss {
   --base-lum: 0;
-  --max-lum: 1.1;
+  --max-lum: 1;
   --base-chroma: 0.08;
   --max-chroma: 0.35;
 }
@@ -72,18 +77,52 @@
 }
 
 .intensity-dawn {
-  --base-lum: 0.12;
-  --max-lum: 1.4;
+  --base-lum: 0.11;
+  --max-lum: 1.2;
   --base-chroma: 0.1;
   --max-chroma: 0.35;
   /* --hue-bg-mod: -4; */
 }
 
-.intensity-overcast {
-  --base-lum: 0.16;
-  --max-lum: 1.4;
-  --base-chroma: 0.105;
-  --max-chroma: 0.35;
+.grey-stone {
+  --hue-bg-base: 228;
+  --hue-fg: 220;
+
+  /* Default Intensity */
+  &.theme-dark,
+  &.theme-light,
+  &.intensity-twilight {
+    --base-lum: 0.05;
+    --max-lum: 1.1;
+    --base-chroma: 0;
+    --max-chroma: 0;
+
+    --base-fg-lum: 0.95;
+    --max-fg-lum: 0.6;
+    --base-fg-chroma: 0;
+    --max-fg-chroma: 0;
+  }
+
+  &.intensity-abyss {
+    --base-lum: 0;
+    --max-lum: 1;
+    --base-chroma: 0;
+    --max-chroma: 0;
+  }
+
+  &.intensity-mist {
+    --base-lum: 0.08;
+    --max-lum: 1.15;
+    --base-chroma: 0;
+    --max-chroma: 0;
+  }
+
+  &.intensity-dawn {
+    --base-lum: 0.11;
+    --max-lum: 1.2;
+    --base-chroma: 0;
+    --max-chroma: 0;
+  }
 }
 
 .theme-dark {
@@ -131,8 +170,6 @@
 
   /* FG color gen  */
 
-  --base-fg-lum: 0.95;
-  --max-fg-lum: 0.6;
   --fac-fg-lum: calc((var(--max-fg-lum) - var(--base-fg-lum)) / 7);
 
   --lum-fg-00: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 0));
@@ -144,8 +181,6 @@
   --lum-fg-60: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 6));
   --lum-fg-70: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 7));
 
-  --base-fg-chroma: 0.01;
-  --max-fg-chroma: 0.3;
   --fac-fg-chroma: calc((var(--max-fg-chroma) - var(--base-fg-chroma)) / 7);
 
   --chroma-fg-00: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 0));
