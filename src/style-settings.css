@@ -7,8 +7,14 @@ settings:
     title: Theme Color
     description: "The domiannt color of your theme. (Dark Theme only)"
     type: class-select
-    default: red-passion
+    default: purple-mystic
     options:
+      -
+        label: Purple
+        value: purple-mystic
+      -
+        label: Violet
+        value: violet-aroma
       -
         label: Red
         value: red-passion
@@ -25,13 +31,10 @@ settings:
         label: Indigo
         value: indigo-harmony
       -
-        label: Blue
+        label: Aqua
         value: blue-ocean
       -
-        label: Purple
-        value: purple-mystic
-      -
-        label: White (Grayish)
+        label: Gray
         value: white-dawn
       -
         label: Black

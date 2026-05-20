@@ -4,9 +4,15 @@
 .theme-dark,
 .theme-light,
 .purple-mystic {
-  --hue-bg-base: 265;
-  --hue-fg: 265;
+  --hue-bg-base: 290;
+  --hue-fg: 290;
 }
+
+.violet-aroma {
+  --hue-bg-base: 330;
+  --hue-fg: 340;
+}
+
 .indigo-harmony {
   --hue-bg-base: 272;
   --hue-fg: 272;
@@ -45,31 +51,39 @@
 .theme-dark,
 .theme-light,
 .intensity-twilight {
-  --base-lum: 0.04;
+  --base-lum: 0.05;
   --max-lum: 1.2;
-  --base-chroma: 0.1;
+  --base-chroma: 0.09;
   --max-chroma: 0.3;
 }
 
 .intensity-abyss {
-  --base-lum: 0.02;
-  --max-lum: 1.2;
-  --base-chroma: 0.04;
+  --base-lum: 0;
+  --max-lum: 1.1;
+  --base-chroma: 0.08;
   --max-chroma: 0.35;
 }
 
-.intensity-overcast {
+.intensity-mist {
+  --base-lum: 0.08;
+  --max-lum: 1.15;
+  --base-chroma: 0.1;
+  --max-chroma: 0.35;
 }
 
 .intensity-dawn {
   --base-lum: 0.12;
-  --max-lum: 1.2;
-  --base-chroma: 0.05;
+  --max-lum: 1.4;
+  --base-chroma: 0.1;
   --max-chroma: 0.35;
-  /* --hue-bg-mod: -10; */
+  /* --hue-bg-mod: -4; */
 }
 
-.intensity-mist {
+.intensity-overcast {
+  --base-lum: 0.16;
+  --max-lum: 1.4;
+  --base-chroma: 0.105;
+  --max-chroma: 0.35;
 }
 
 .theme-dark {
