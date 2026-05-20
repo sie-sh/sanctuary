@@ -1,136 +1,198 @@
-/* ============== Theme Colors ============== */
+/* ============== Color System ============== */
 
 /* Default Base Color */
 .theme-dark,
 .theme-light,
 .purple-mystic {
-  --hue-bg: 265;
+  --hue-bg-base: 265;
   --hue-fg: 265;
-  --sat-bg: 60%;
-  --sat-fg: 100%;
-  &.theme-light {
-    --lum-fg: 50%;
-    --lum-bg: 95%;
-  }
 }
 .indigo-harmony {
-  --hue-bg: 238;
-  --hue-fg: 255;
-  --sat-bg: 60%;
-  --sat-fg: 100%;
-  &.theme-light {
-    --lum-fg: 50%;
-    --lum-bg: 95%;
-  }
+  --hue-bg-base: 272;
+  --hue-fg: 272;
 }
 
-.red-passion {
-  --hue-bg: 340;
-  --hue-fg: 320;
-  --sat-bg: 60%;
-  --sat-fg: 100%;
-  &.theme-light {
-    --lum-fg: 50%;
-    --lum-bg: 95%;
-  }
-}
 .orange-sunset {
-  --hue-bg: 30;
+  --hue-bg-base: 30;
   --hue-fg: 30;
-  --sat-bg: 60%;
-  --sat-fg: 100%;
-  &.theme-light {
-    --lum-fg: 50%;
-    --lum-bg: 95%;
-  }
 }
 .yellow-glow {
-  --hue-bg: 60;
-  --hue-fg: 60;
-  --sat-bg: 60%;
-  --sat-fg: 100%;
-  &.theme-light {
-    --lum-fg: 50%;
-    --lum-bg: 95%;
-  }
+  --hue-bg-base: 70;
+  --hue-fg: 70;
 }
 .green-serenity {
-  --hue-bg: 120;
+  --hue-bg-base: 120;
   --hue-fg: 120;
-  --sat-bg: 60%;
-  --sat-fg: 100%;
-  &.theme-light {
-    --lum-fg: 50%;
-    --lum-bg: 95%;
-  }
 }
 .blue-ocean {
-  --hue-bg: 228;
+  --hue-bg-base: 228;
   --hue-fg: 220;
-  --sat-bg: 60%;
-  --sat-fg: 100%;
-  &.theme-light {
-    --lum-fg: 50%;
-    --lum-bg: 95%;
-  }
 }
 .white-dawn {
-  --hue-bg: 228;
+  --hue-bg-base: 228;
   --hue-fg: 220;
-  --sat-bg: 20%;
-  --sat-fg: 20%;
-  &.theme-light {
-    --sat-bg: 30%;
-    --sat-fg: 0%;
-    --lum-bg: 90%;
-    --lum-fg: 0%;
-    &.intensity-abyss {
-      --lum-bg: 100%;
-    }
-    &.intensity-dawn {
-      --lum-bg: 80%;
-    }
-  }
 }
 .black-night {
-  --hue-bg: 0;
+  --hue-bg-base: 0;
   --hue-fg: 0;
-  --sat-bg: 0%;
-  --sat-fg: 0%;
-  &.theme-light {
-    --lum-fg: 20%;
-    --lum-bg: 80%;
-  }
+}
+.red-passion {
+  --hue-bg-base: 5;
+  --hue-fg: 5;
 }
 
 /* Default Intensity */
 .theme-dark,
 .theme-light,
 .intensity-twilight {
-  --lum: 11%;
-  /* Redux: All backgroudns same color.  */
-  --background-secondary: var(--color-base-00) !important;
-}
-
-.intensity-overcast {
-  --lum: 26%;
-  --background-modifier-border: var(--color-base-40) !important;
-}
-
-.intensity-dawn {
-  --lum: 22%;
-  --background-modifier-border: var(--color-base-30) !important;
-}
-
-.intensity-mist {
-  --lum: 16%;
-  /* --background-modifier-border: var(--color-base-20) !important; */
+  --base-lum: 0.04;
+  --max-lum: 1.2;
+  --base-chroma: 0.1;
+  --max-chroma: 0.3;
 }
 
 .intensity-abyss {
-  --lum: 0%;
-  --background-modifier-border: var(--color-base-40) !important;
+  --base-lum: 0.02;
+  --max-lum: 1.2;
+  --base-chroma: 0.04;
+  --max-chroma: 0.35;
 }
+
+.intensity-overcast {
+}
+
+.intensity-dawn {
+  --base-lum: 0.12;
+  --max-lum: 1.2;
+  --base-chroma: 0.05;
+  --max-chroma: 0.35;
+  /* --hue-bg-mod: -10; */
+}
+
+.intensity-mist {
+}
+
+.theme-dark {
+  --hue-bg: calc(var(--hue-bg-base) + var(--hue-bg-mod, 0));
+  /* BG color gen */
+  --fac-lum: calc((var(--max-lum) - var(--base-lum)) / 10);
+
+  --lum-00: calc(var(--base-lum) + (var(--fac-lum) * 0));
+  --lum-10: calc(var(--base-lum) + (var(--fac-lum) * 1));
+  --lum-20: calc(var(--base-lum) + (var(--fac-lum) * 2));
+  --lum-30: calc(var(--base-lum) + (var(--fac-lum) * 3));
+  --lum-40: calc(var(--base-lum) + (var(--fac-lum) * 4));
+  --lum-50: calc(var(--base-lum) + (var(--fac-lum) * 5));
+  --lum-60: calc(var(--base-lum) + (var(--fac-lum) * 6));
+  --lum-70: calc(var(--base-lum) + (var(--fac-lum) * 7));
+  --lum-80: calc(var(--base-lum) + (var(--fac-lum) * 8));
+  --lum-90: calc(var(--base-lum) + (var(--fac-lum) * 9));
+  --lum-100: calc(var(--base-lum) + (var(--fac-lum) * 10));
+
+  --fac-chroma: calc((var(--max-chroma) - var(--base-chroma)) / 10);
+
+  --chroma-00: calc(var(--base-chroma) + (var(--fac-chroma) * 0));
+  --chroma-10: calc(var(--base-chroma) + (var(--fac-chroma) * 1));
+  --chroma-20: calc(var(--base-chroma) + (var(--fac-chroma) * 2));
+  --chroma-30: calc(var(--base-chroma) + (var(--fac-chroma) * 3));
+  --chroma-40: calc(var(--base-chroma) + (var(--fac-chroma) * 4));
+  --chroma-50: calc(var(--base-chroma) + (var(--fac-chroma) * 5));
+  --chroma-60: calc(var(--base-chroma) + (var(--fac-chroma) * 6));
+  --chroma-70: calc(var(--base-chroma) + (var(--fac-chroma) * 7));
+  --chroma-80: calc(var(--base-chroma) + (var(--fac-chroma) * 8));
+  --chroma-90: calc(var(--base-chroma) + (var(--fac-chroma) * 9));
+  --chroma-100: calc(var(--base-chroma) + (var(--fac-chroma) * 10));
+
+  --color-base-00: oklch(var(--lum-00) var(--chroma-00) var(--hue-bg));
+  --color-base-10: oklch(var(--lum-10) var(--chroma-10) var(--hue-bg));
+  --color-base-20: oklch(var(--lum-20) var(--chroma-20) var(--hue-bg));
+  --color-base-30: oklch(var(--lum-30) var(--chroma-30) var(--hue-bg));
+  --color-base-40: oklch(var(--lum-40) var(--chroma-40) var(--hue-bg));
+  --color-base-50: oklch(var(--lum-50) var(--chroma-50) var(--hue-bg));
+  --color-base-60: oklch(var(--lum-60) var(--chroma-60) var(--hue-bg));
+  --color-base-70: oklch(var(--lum-70) var(--chroma-70) var(--hue-bg));
+  --color-base-80: oklch(var(--lum-80) var(--chroma-80) var(--hue-bg));
+  --color-base-90: oklch(var(--lum-90) var(--chroma-90) var(--hue-bg));
+  --color-base-100: oklch(var(--lum-100) var(--chroma-100) var(--hue-bg));
+
+  /* FG color gen  */
+
+  --base-fg-lum: 0.95;
+  --max-fg-lum: 0.6;
+  --fac-fg-lum: calc((var(--max-fg-lum) - var(--base-fg-lum)) / 7);
+
+  --lum-fg-00: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 0));
+  --lum-fg-10: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 1));
+  --lum-fg-20: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 2));
+  --lum-fg-30: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 3));
+  --lum-fg-40: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 4));
+  --lum-fg-50: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 5));
+  --lum-fg-60: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 6));
+  --lum-fg-70: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 7));
+
+  --base-fg-chroma: 0.01;
+  --max-fg-chroma: 0.3;
+  --fac-fg-chroma: calc((var(--max-fg-chroma) - var(--base-fg-chroma)) / 7);
+
+  --chroma-fg-00: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 0));
+  --chroma-fg-10: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 1));
+  --chroma-fg-20: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 2));
+  --chroma-fg-30: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 3));
+  --chroma-fg-40: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 4));
+  --chroma-fg-50: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 5));
+  --chroma-fg-60: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 6));
+  --chroma-fg-70: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 7));
+
+  --color-fg-00: oklch(var(--lum-fg-00) var(--chroma-fg-00) var(--hue-fg));
+  --color-fg-10: oklch(var(--lum-fg-10) var(--chroma-fg-10) var(--hue-fg));
+  --color-fg-20: oklch(var(--lum-fg-20) var(--chroma-fg-20) var(--hue-fg));
+  --color-fg-30: oklch(var(--lum-fg-30) var(--chroma-fg-30) var(--hue-fg));
+  --color-fg-40: oklch(var(--lum-fg-40) var(--chroma-fg-40) var(--hue-fg));
+  --color-fg-50: oklch(var(--lum-fg-50) var(--chroma-fg-50) var(--hue-fg));
+  --color-fg-60: oklch(var(--lum-fg-60) var(--chroma-fg-60) var(--hue-fg));
+  --color-fg-70: oklch(var(--lum-fg-70) var(--chroma-fg-70) var(--hue-fg));
+
+  /* ============== Background and Foreground Colors ============== */
+  --background-primary: var(--color-base-00);
+  --background-secondary: var(--color-base-00);
+
+  /* ============== General Theme Colors ============== */
+  --titlebar-background: var(--color-base-00);
+  --titlebar-background-focused: var(--color-base-00);
+
+  --scrollbar-thumb-bg: var(--color-base-30);
+  --scrollbar-active-thumb-bg: var(--color-base-40);
+
+  /* borders */
+  --background-modifier-hover: var(--color-base-30);
+  --background-modifier-border: var(--color-base-30);
+  --background-modifier-border-hover: var(--color-base-30);
+
+  /* interactiev colors  */
+  --table-border-color: var(--color-base-30);
+  --interactive-hover: var(--color-base-40);
+  --background-modifier-form-field: var(--color-base-10);
+  --nav-indentation-guide-color: var(--color-base-30);
+  --indentation-guide-color: var(--color-base-30);
+
+  --divider-color: var(--background-modifier-border);
+  --indentation-guide-color-active: var(--color-base-30);
+
+  /* ============== Default Font Variables ============== */
+
+  --title-color: var(--color-fg-70);
+  --header-title-color: var(--color-fg-40);
+  --text-normal: var(--color-fg-00);
+
+  --h1-color: var(--color-fg-60);
+  --h2-color: var(--color-fg-50);
+  --h3-color: var(--color-fg-40);
+  --h4-color: var(--color-fg-30);
+  --h5-color: var(--color-fg-20);
+  --h6-color: var(--color-fg-10);
+}
+
+/* Applied variables */
 
 body {
   /* ============== Default Font Variables ============== */
@@ -150,10 +212,6 @@ body {
   --h6-size: calc(var(--font-text-size));
 }
 
-.theme-light {
-  --title-color: black;
-}
-
 .theme-dark {
   /* ============== Default Color Variables ============== */
   --black: #000;
@@ -169,47 +227,7 @@ body {
   --magenta: #e54f9b;
   --hot-red: #e3365e;
   --cool-gray: #515768;
-  /* ============== Default Font Variables ============== */
-  --h1-color: hsl(var(--hue-bg), var(--sat-fg), 65%);
-  --h2-color: hsl(var(--hue-bg), var(--sat-fg), 75%);
-  --h3-color: hsl(var(--hue-bg), var(--sat-fg), 80%);
-  --h4-color: hsl(var(--hue-bg), var(--sat-fg), 80%);
-  --h5-color: hsl(var(--hue-bg), var(--sat-fg), 90%);
-  --h6-color: hsl(var(--hue-bg), var(--sat-fg), 95%);
-  /* ============== Background and Foreground Colors ============== */
-  --background: hsl(var(--hue-bg), var(--sat-bg), var(--lum));
-  --foreground: hsl(var(--hue-fg), var(--sat-fg), 82%);
-  /* ============== General Theme Colors ============== */
-  --background-primary: var(--color-base-00);
-  --background-secondary: var(--color-base-10);
-  --titlebar-background: var(--color-base-00);
-  --titlebar-background-focused: var(--color-base-00);
-  --scrollbar-thumb-bg: var(--color-base-30);
-  --scrollbar-active-thumb-bg: var(--color-base-40);
-  --table-border-color: var(--color-base-30);
-  --header-title-color: hsl(var(--hue-bg), var(--sat-fg), 65%);
-  --title-color: hsl(var(--hue-bg), var(--sat-fg), 65%);
 
-  --color-base-00: color-mix(in srgb, var(--background) 25%, var(--black));
-  --color-base-05: color-mix(in srgb, var(--background) 40%, var(--black));
-  --color-base-10: color-mix(in srgb, var(--background) 50%, var(--black));
-  --color-base-20: color-mix(in srgb, var(--background) 80%, var(--black));
-  --color-base-25: color-mix(in srgb, var(--background) 80%, var(--black));
-  --color-base-30: color-mix(in srgb, var(--background) 90%, var(--foreground));
-  --color-base-35: color-mix(in srgb, var(--background) 95%, var(--foreground));
-  --color-base-40: color-mix(in srgb, var(--background) 80%, var(--foreground));
-  --color-base-50: color-mix(in srgb, var(--background) 60%, var(--foreground));
-  --color-base-60: color-mix(in srgb, var(--background) 60%, var(--foreground));
-  --color-base-70: color-mix(in srgb, var(--background) 30%, var(--foreground));
-  --color-base-100: color-mix(in srgb, var(--background) 0%, var(--foreground));
-
-  --text-normal: #faf4ed;
-  --background-modifier-form-field: var(--color-base-20);
-  --background-modifier-hover: var(--color-base-30);
-  --background-modifier-border: var(--color-base-30);
-  --nav-indentation-guide-color: var(--color-base-30);
-  --indentation-guide-color: var(--color-base-30);
-  --indentation-guide-color-active: var(--color-base-35);
   --slider-track-background: var(--text-accent);
   --slider-track-height: 3px;
   --checkbox-color: var(--text-accent);
@@ -222,7 +240,6 @@ body {
   );
 
   /* misc vars for taste */
-  --divider-color: var(--background-modifier-border);
   --tab-radius: var(--radius-m);
   --radius-s: 6px;
   --menu-radius: 12px;
@@ -236,4 +253,8 @@ body {
   --he-title-bar-active-pinned-bg: var(--color-base-20);
   --he-title-bar-inactive-bg: var(--color-base-10);
   --he-title-bar-inactive-pinned-bg: var(--color-base-10);
+}
+
+.theme-light {
+  --title-color: black;
 }
