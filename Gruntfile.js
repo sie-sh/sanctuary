@@ -51,12 +51,13 @@ module.exports = function (grunt) {
     return path.resolve(path.join(vaultPath, themeName));
   };
 
-  // Auto-discover all CSS files in src/ and subdirectories
-  const cssFiles = grunt.file.expand(
-    { filter: "isFile" },
-    "src/**/*.css",
-    "!src/original.css", // Exclude backup/original files
-  );
+  // Helper: discover CSS files dynamically (so new files are picked up without restart)
+  const getCssFiles = () =>
+    grunt.file.expand(
+      { filter: "isFile" },
+      "src/**/*.css",
+      "!src/original.css",
+    );
 
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
@@ -71,9 +72,11 @@ module.exports = function (grunt) {
     // Concatenate CSS files - always generates theme.css
     concat_css: {
       dist: {
-        files: {
-          "dist/theme.css": cssFiles,
-        },
+        src: [
+          "src/**/*.css",
+          "!src/original.css",
+        ],
+        dest: "dist/theme.css",
       },
     },
 
@@ -137,6 +140,7 @@ module.exports = function (grunt) {
     "Generate unminified Sanctuary.css",
     function () {
       if (!getBool("GENERATE_DEV_CSS", false)) return;
+      const cssFiles = getCssFiles();
       const content = cssFiles.map((file) => grunt.file.read(file)).join("\n");
       grunt.file.write("dist/Sanctuary.css", content);
       grunt.log.ok("Created dist/Sanctuary.css");
