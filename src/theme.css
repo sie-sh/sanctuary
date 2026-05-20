@@ -467,54 +467,6 @@ body:not(.is-phone)
   z-index: -1;
 }
 
-/* Minimal properties  */
-/* TODO: move to misc and behind style settings flag */
-.metadata-container {
-  margin: 0;
-  padding: 0;
-
-  &:not(.is-collapsed) {
-    padding-bottom: 4px;
-  }
-
-  .metadata-add-button {
-    opacity: 0;
-    transition: 300ms ease opacity;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .metadata-properties-heading {
-    display: inline-flex;
-    align-items: center;
-    border-radius: var(--radius-m);
-
-    .metadata-properties-title {
-      display: none;
-    }
-
-    .collapse-indicator.is-collapsed svg.svg-icon {
-      color: var(--collapse-icon-color);
-    }
-
-    &:not(:hover) .collapse-indicator.is-collapsed svg.svg-icon {
-      opacity: 0;
-    }
-
-    &:hover {
-      background: var(--background-primary-alt);
-    }
-
-    &::after {
-      content: "···";
-      display: block;
-      width: var(--metadata-label-width);
-    }
-  }
-}
-
 .graph-control-section {
   padding: 8px 8px 6px;
 }

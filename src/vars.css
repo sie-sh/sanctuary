@@ -250,7 +250,7 @@ body {
   --font-monospace-theme: "Ioskeley Mono", "Source Code Pro", monospace;
   --font-callout-theme: "Computer Modern", "Sans-Serif";
   /* ============== Typography ============== */
-  --unified-heading-space: 10px;
+  --unified-heading-space: 8px;
   --font-text-size: 10px;
   /* ============== Header Sizes ============== */
   --h1-size: calc(var(--font-text-size) + 8px);
@@ -304,6 +304,3 @@ body {
   --he-title-bar-inactive-pinned-bg: var(--color-base-10);
 }
 
-.theme-light {
-  --title-color: black;
-}
