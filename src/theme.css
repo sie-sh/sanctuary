@@ -7,7 +7,7 @@
 :root {
   -webkit-font-smoothing: subpixel-antialiased;
   font-smooth: always;
-  shape-rendering: geometricPosition;
+  /* shape-rendering: geometricPosition; */
 }
 
 /*  =============== App =============== */
@@ -160,8 +160,6 @@ body:not(.is-phone)
 /* ============== Horizontal Rule ============== */
 .markdown-preview-view hr,
 .cm-line hr {
-  border: none;
-  border-bottom: 1px solid hsl(var(--hue-bg), var(--sat-fg), 65%);
   height: 30px;
 }
 
@@ -186,7 +184,7 @@ body:not(.is-mobile) .mod-root .workspace-tab-container .view-content {
 }
 
 /* Remove fade in view header */
-.mod-fade:not(.mod-at-end):after {
+.mod-fade:not(.mod-at-end)::after {
   display: none;
 }
 
@@ -327,7 +325,7 @@ body:not(.is-phone)
   .workspace-tab-header-inner::after {
   display: none;
 }
-/* Remove resize borders on left and right*/
+/* Remove resize borders on left and right */
 .workspace-split.mod-left-split > .workspace-leaf-resize-handle,
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
   border: none;
@@ -509,7 +507,7 @@ body:not(.is-phone)
       background: var(--background-primary-alt);
     }
 
-    &:after {
+    &::after {
       content: "···";
       display: block;
       width: var(--metadata-label-width);

@@ -36,7 +36,7 @@
       background: var(--background-primary-alt);
     }
 
-    &:after {
+    &::after {
       content: "···";
       display: block;
       width: var(--metadata-label-width);

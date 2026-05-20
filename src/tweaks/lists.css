@@ -103,9 +103,9 @@ li[data-task="/"] > p > input:checked {
   position: relative;
   overflow: hidden;
 }
-input[data-task="/"]:checked:after,
-li[data-task="/"] > input:checked:after,
-li[data-task="/"] > p > input:checked:after {
+input[data-task="/"]:checked::after,
+li[data-task="/"] > input:checked::after,
+li[data-task="/"] > p > input:checked::after {
   top: 0;
   left: 0;
   content: " ";
