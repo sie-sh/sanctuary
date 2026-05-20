@@ -117,7 +117,7 @@ settings:
   - 
     id: wide-tabs
     title: Wide Tabs
-    description: Let tabs be really wide until the tab container is full. They will still shrink wheree appropriate.
+    description: Let tabs be really wide until the tab container is full. They will still shrink where appropriate.
     type: class-toggle
     default: true
   - 
@@ -135,7 +135,7 @@ settings:
   - 
     id: embed-style
     title: Embed Styling
-    description: Changes how much embds are distinguished amongst other blocks of text.
+    description: Changes how much embeds are distinguished amongst other blocks of text.
     type: class-select
     default: embeds-default
     options:
@@ -143,7 +143,7 @@ settings:
         label: Default
         value: embeds-default
       -
-        label: Relaxed (Show Outline on hover)
+        label: Relaxed (Outline on Hover)
         value: embeds-conform
       -
         label: Stealth (Appear Inline)
