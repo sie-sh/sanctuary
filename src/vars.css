@@ -4,33 +4,33 @@
 .theme-dark,
 .theme-light,
 .purple-mystic {
-  --hue-bg-base: 290;
-  --hue-fg: 290;
+  --hue-bg-base: 293;
+  --hue-fg: 293;
 }
 
 .violet-aroma {
   --hue-bg-base: 330;
-  --hue-fg: 340;
+  --hue-fg: 330;
 }
 
 .pink-passion {
-  --hue-bg-base: 358;
-  --hue-fg: 358;
+  --hue-bg-base: 0;
+  --hue-fg:      0;
 }
 
 .red-blood {
   --hue-bg-base: 8;
-  --hue-fg: 8;
+  --hue-fg:      8;
 }
 .orange-sunset {
-  --hue-bg-base: 30;
-  --hue-fg: 30;
+  --hue-bg-base: 45;
+  --hue-fg:      75;
 }
 .yellow-glow {
   --hue-bg-base: 74;
-  --hue-fg: 74;
+  --hue-fg: 89;
 }
-.green-serenity {
+.leaf-serenity {
   --hue-bg-base: 120;
   --hue-fg: 120;
 }
@@ -38,9 +38,9 @@
   --hue-bg-base: 180;
   --hue-fg: 180;
 }
-.blue-ocean {
-  --hue-bg-base: 228;
-  --hue-fg: 220;
+.aqua-ocean {
+  --hue-bg-base: 218;
+  --hue-fg: 200;
 }
 .indigo-harmony {
   --hue-bg-base: 272;
@@ -57,9 +57,9 @@
   --max-chroma: 0.3;
 
   --base-fg-lum: 0.95;
-  --max-fg-lum: 0.6;
+  --max-fg-lum: 0.65;
   --base-fg-chroma: 0.01;
-  --max-fg-chroma: 0.3;
+  --max-fg-chroma: 0.32;
 }
 
 .intensity-abyss {
@@ -233,12 +233,12 @@
   --header-title-color: var(--color-fg-40);
   --text-normal: var(--color-fg-00);
 
-  --h1-color: var(--color-fg-60);
-  --h2-color: var(--color-fg-50);
-  --h3-color: var(--color-fg-40);
-  --h4-color: var(--color-fg-30);
-  --h5-color: var(--color-fg-20);
-  --h6-color: var(--color-fg-10);
+  --h1-color: var(--color-fg-70);
+  --h2-color: var(--color-fg-60);
+  --h3-color: var(--color-fg-50);
+  --h4-color: var(--color-fg-40);
+  --h5-color: var(--color-fg-30);
+  --h6-color: var(--color-fg-20);
 }
 
 /* Applied variables */
