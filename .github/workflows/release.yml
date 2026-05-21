@@ -1,0 +1,29 @@
+name: Release Sanctuary Redux
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          npm install
+          npm run build
+          cd dist
+          gh release create "$tag" \
+            --title="$tag" \
+            --generate-notes \
+            --draft \
+            manifest.json theme.css

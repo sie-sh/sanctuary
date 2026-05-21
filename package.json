@@ -2,6 +2,7 @@
   "name": "sanctuary",
   "private": true,
   "scripts": {
+    "build": "grunt compile",
     "dev": "grunt",
     "lint": "stylelint 'src/**/*.css'",
     "lint:fix": "stylelint 'src/**/*.css' --fix"
