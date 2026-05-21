@@ -21,9 +21,8 @@ jobs:
           tag="${GITHUB_REF#refs/tags/}"
           npm install
           npm run build
-          cd dist
           gh release create "$tag" \
             --title="$tag" \
             --generate-notes \
             --draft \
-            manifest.json theme.css
+            dist/manifest.json dist/theme.css
