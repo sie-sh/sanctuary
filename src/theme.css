@@ -198,9 +198,22 @@ body:not(.is-mobile) .mod-root .workspace-tab-container .view-content {
   box-sizing: border-box;
 }
 
+.show-ribbon .mod-root {
+  margin-left: -1px;
+  width: calc(100% + 1px);
+}
+
 /* Avoid clipping leaf border on window boeder on windows */
-.mod-windows .mod-root {
-  padding: 1px;
+.mod-windows {
+  .mod-root {
+    padding-right: 1px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+  }
+
+  &:not(.show-ribbon) .mod-root {
+    padding-left: 1px;
+  }
 }
 
 /* Banner plugin set images to round */
