@@ -5,7 +5,7 @@
 .theme-light,
 .purple-mystic {
   --hue-bg-base: 293;
-  --hue-fg: 293;
+  --hue-fg: 288;
 }
 
 .violet-aroma {
@@ -15,16 +15,16 @@
 
 .pink-passion {
   --hue-bg-base: 0;
-  --hue-fg:      0;
+  --hue-fg: 5;
 }
 
 .red-blood {
   --hue-bg-base: 8;
-  --hue-fg:      8;
+  --hue-fg: 12;
 }
 .orange-sunset {
   --hue-bg-base: 45;
-  --hue-fg:      75;
+  --hue-fg: 75;
 }
 .yellow-glow {
   --hue-bg-base: 74;
@@ -303,4 +303,3 @@ body {
   --he-title-bar-inactive-bg: var(--color-base-10);
   --he-title-bar-inactive-pinned-bg: var(--color-base-10);
 }
-
