@@ -1,3 +1,6 @@
+:root .pixel-banner-image {
+  border-top-right-radius: 16px !important;
+}
 .spt-pbanner-vibrant .pixel-banner-image {
   filter: contrast(115%) brightness(110%) saturate(110%) !important;
 }
