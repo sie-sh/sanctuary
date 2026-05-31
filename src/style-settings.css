@@ -15,7 +15,6 @@ settings:
       -
         label: Violet
         value: violet-aroma
-
       -
         label: Pink
         value: pink-passion
@@ -97,7 +96,7 @@ settings:
     title: Tweaks
     type: heading
     level: 1
-    collapsed: false
+    collapsed: true
   - 
     id: theme-spacing
     title: Spacing
@@ -148,4 +147,22 @@ settings:
       -
         label: Stealth (Appear Inline)
         value: embeds-stealth
+  - 
+    id: theme-plugin-tweaks
+    title: Plugin Tweaks
+    type: heading
+    level: 2
+    collapsed: true
+  - 
+    id: spt-pbanner-vibrant
+    title: Pixel Banner - Vibrant
+    description: Increase the contrast and saturation of Pixel Banner banners to make them more vibrant.
+    type: class-toggle
+    default: true
+  - 
+    id: spt-calendar
+    title: Calendar - Custom
+    description: Stylize the calendar to align with Sancuaty's aesthetics.
+    type: class-toggle
+    default: true
 */

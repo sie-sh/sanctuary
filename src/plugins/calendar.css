@@ -1,12 +1,13 @@
-.view-content:has(#calendar-container) {
+.spt-calendar {
+  .view-content:has(#calendar-container) {
     padding: 30px 0px 0px 0px;
     .day {
-        padding-top: 0;
-        padding-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
     }
-}
+  }
 
-#calendar-container {
+  #calendar-container {
     padding: 0px 8px 8px 8px;
     border: solid 1px var(--background-modifier-border);
     border-radius: 20px;
@@ -14,16 +15,17 @@
     max-width: 270px;
     margin: 0 auto; /* Center block elements horizontally */
     .year {
-        color: var(--text-muted);
+      color: var(--text-muted);
     }
     .day.today {
-        color: var(--text-muted);
-        font-weight: 700;
+      color: var(--text-muted);
+      font-weight: 700;
     }
     .day.adjacent-month {
-        color: var(--tx2);
+      color: var(--tx2);
     }
     .weekend {
-        background: var(--bg2, var(--color-base-20));
+      background: var(--bg2, var(--color-base-20));
     }
+  }
 }
