@@ -169,12 +169,42 @@ body:not(.is-mobile)
   .mod-root
   .workspace-tab-container
   .view-content:not(.bases-view .view-content) {
-  border-radius: 16px;
-}
+  --radius: 16px;
 
-body:not(.is-mobile) .mod-root .workspace-tab-container .view-content {
   width: calc(100% - 6px);
   margin: 3px auto;
+
+  &:not(:has(.markdown-source-view)) {
+    border-radius: var(--radius);
+  }
+  &:has(> .markdown-source-view) {
+    width: calc(100% - 3px);
+    margin: 3px 0 3px 3px;
+
+    --scrollbar-width-with-offset: calc(var(--scrollbar-width) - 0.5px);
+    clip-path: shape(
+      from var(--radius) 0,
+      arc to 0 var(--radius) of var(--radius),
+      line to 0 calc(100% - var(--radius)),
+      arc to var(--radius) 100% of var(--radius),
+      line to calc(100% - var(--scrollbar-width-with-offset) - var(--radius))
+        100%,
+      arc to calc(100% - var(--scrollbar-width-with-offset))
+        calc(100% - var(--radius)) of var(--radius),
+      line to calc(100% - var(--scrollbar-width-with-offset)) 100%,
+      line to 100% 100%,
+      line to 100% 0,
+      line to calc(100% - var(--scrollbar-width-with-offset)) 0,
+      line to calc(100% - var(--scrollbar-width-with-offset)) var(--radius),
+      arc to calc(100% - var(--scrollbar-width-with-offset) - var(--radius)) 0
+        of var(--radius),
+      close
+    );
+  }
+
+  &:has(> .bases-header) {
+    width: 100%;
+  }
 }
 
 /* Remove borders on sidebars and headers */
