@@ -1,0 +1,6 @@
+:root {
+  --he-title-bar-active-bg: var(--color-base-20);
+  --he-title-bar-active-pinned-bg: var(--color-base-20);
+  --he-title-bar-inactive-bg: var(--color-base-10);
+  --he-title-bar-inactive-pinned-bg: var(--color-base-10);
+}

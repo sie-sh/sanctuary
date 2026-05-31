@@ -295,11 +295,4 @@ body {
   --setting-items-radius: 16px;
   --button-radius: 8px;
   --input-radius: 8px;
-
-  /* plugin vars, to be moved elsewhere  */
-  --nn-selected-file-bg-color: --background-modifier-border !important;
-  --he-title-bar-active-bg: var(--color-base-20);
-  --he-title-bar-active-pinned-bg: var(--color-base-20);
-  --he-title-bar-inactive-bg: var(--color-base-10);
-  --he-title-bar-inactive-pinned-bg: var(--color-base-10);
 }
