@@ -2,9 +2,6 @@
 
 ![image](https://github.com/user-attachments/assets/2ce21efe-96ae-4398-adbd-fbea9ee9cdf6)
 
-Colorful. Elegant. Beautiful.
-
-Elevate your vault into the sacred space it has always been.
 
 Sanctuary Redux is a fork of Shade Sanctuary meant to simplify and modernize its aesthetic direction.
 
