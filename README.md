@@ -34,7 +34,7 @@ This theme was built to last. It comes with tweaks meant to help you make it you
 
 If you have a certain plugin you'd like to see integrated or touched up, found a bug, or have a feature or tweak you'd like to see included in the theme, please feel free to open an Issue or submit a Pull Request.
 
-To contribute to Shade Sanctuary:
+To contribute to Sanctuary Redux:
 
 - **Report Issues**: Open an issue on the [GitHub repository](https://github.com/Elevict/Elevicts_Theme/issues) to report bugs or request features.
 - **Submit Pull Requests**: Share your improvements or fixes by submitting a pull request to help enhance the theme.
