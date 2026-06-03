@@ -1,6 +1,6 @@
 .spt-calendar {
   .view-content:has(#calendar-container) {
-    padding: 30px 0px 0px 0px;
+    padding: 30px 0px;
     .day {
       padding-top: 0;
       padding-bottom: 0;
@@ -14,6 +14,23 @@
     background: var(--color-base-00);
     max-width: 270px;
     margin: 0 auto; /* Center block elements horizontally */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin: 0;
+      padding-right: 0;
+      height: 55px;
+    }
+    .right-nav {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      .reset-button {
+        height: 1em;
+      }
+    }
     .year {
       color: var(--text-muted);
     }
