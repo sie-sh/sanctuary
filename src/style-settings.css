@@ -120,11 +120,11 @@ settings:
     type: class-toggle
     default: true
   - 
-    id: vh-stealth
-    title: Minimal View Header
-    description: Makes the view header less flashy.
+    id: vh-classic
+    title: Classic View Header
+    description: Style the view header with a border, like it used to.
     type: class-toggle
-    default: true
+    default: false
   - 
     id: prop-stealth
     title: Minimal Properties

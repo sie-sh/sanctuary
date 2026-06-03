@@ -5,10 +5,10 @@
 }
 
 /* View Header Styles */
-.vh-stealth:not(.is-phone) {
-  --view-header-height: 42px;
+.vh-classic:not(.is-phone) {
+  --view-header-height: 46px;
 
   .mod-root .workspace-leaf .view-header {
-    border: none;
+    border: solid 1px var(--background-modifier-border);
   }
 }
