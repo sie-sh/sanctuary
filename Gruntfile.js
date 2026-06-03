@@ -72,11 +72,8 @@ module.exports = function (grunt) {
     // Concatenate CSS files - always generates theme.css
     concat_css: {
       dist: {
-        src: [
-          "src/**/*.css",
-          "!src/original.css",
-        ],
-        dest: "dist/theme.css",
+        src: ["src/**/*.css", "!src/original.css"],
+        dest: "theme.css",
       },
     },
 
@@ -92,7 +89,7 @@ module.exports = function (grunt) {
       },
       minified: {
         files: {
-          "dist/theme.css": "dist/theme.css",
+          "theme.css": "theme.css",
         },
       },
     },
@@ -110,13 +107,12 @@ module.exports = function (grunt) {
           "generate_dev_css",
           "postcss",
           "inject_settings",
-          "copy_manifest",
           "hot_reload",
         ],
       },
       manifest: {
         files: ["manifest.json"],
-        tasks: ["copy_manifest", "hot_reload"],
+        tasks: ["hot_reload"],
       },
       config: {
         files: [".env", "Gruntfile.js"],
@@ -126,13 +122,21 @@ module.exports = function (grunt) {
           "generate_dev_css",
           "postcss",
           "inject_settings",
-          "copy_manifest",
           "hot_reload",
         ],
         options: { reload: true },
       },
     },
   });
+
+  // Build task: concat, dev css, minify, inject settings, copy manifest
+  // Note: env should be loaded before calling build (see default task)
+  grunt.registerTask("build", [
+    "concat_css",
+    "generate_dev_css",
+    "postcss",
+    "inject_settings",
+  ]);
 
   // Generate unminified Sanctuary.css
   grunt.registerTask(
@@ -142,28 +146,10 @@ module.exports = function (grunt) {
       if (!getBool("GENERATE_DEV_CSS", false)) return;
       const cssFiles = getCssFiles();
       const content = cssFiles.map((file) => grunt.file.read(file)).join("\n");
-      grunt.file.write("dist/Sanctuary.css", content);
-      grunt.log.ok("Created dist/Sanctuary.css");
+      grunt.file.write("Sanctuary.css", content);
+      grunt.log.ok("Created /Sanctuary.css");
     },
   );
-
-  // Build task: concat, dev css, minify, inject settings, copy manifest
-  // Note: env should be loaded before calling build (see default task)
-  grunt.registerTask("build", [
-    "concat_css",
-    "generate_dev_css",
-    "postcss",
-    "inject_settings",
-    "copy_manifest",
-  ]);
-
-  // Copy manifest.json to dist/
-  grunt.registerTask("copy_manifest", "Copy manifest to dist", function () {
-    if (grunt.file.exists("manifest.json")) {
-      grunt.file.copy("manifest.json", "dist/manifest.json");
-      grunt.log.ok("Copied manifest.json -> dist/manifest.json");
-    }
-  });
 
   // Inject @settings comment after minification
   grunt.registerTask(
@@ -171,7 +157,7 @@ module.exports = function (grunt) {
     "Inject @settings comment",
     function () {
       const styleSettingsPath = "src/style-settings.css";
-      const themePath = "dist/theme.css";
+      const themePath = "theme.css";
 
       if (!grunt.file.exists(styleSettingsPath)) {
         grunt.fail.warn("style-settings.css not found");
@@ -188,7 +174,7 @@ module.exports = function (grunt) {
 
       const themeContent = grunt.file.read(themePath);
       grunt.file.write(themePath, match[0] + "\n" + themeContent);
-      grunt.log.ok("Injected @settings comment into dist/theme.css");
+      grunt.log.ok("Injected @settings comment into theme.css");
     },
   );
 
@@ -203,8 +189,8 @@ module.exports = function (grunt) {
     }
 
     const files = [
-      { src: "dist/theme.css", dest: "theme.css" },
-      { src: "dist/manifest.json", dest: "manifest.json" },
+      { src: "theme.css", dest: "theme.css" },
+      { src: "manifest.json", dest: "manifest.json" },
     ];
 
     // Create directory if needed
