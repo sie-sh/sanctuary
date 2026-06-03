@@ -1,6 +1,6 @@
 ## Sanctuary Redux
 
-![image](https://github.com/user-attachments/assets/2ce21efe-96ae-4398-adbd-fbea9ee9cdf6)
+![image](./assets/cover.png)
 
 Sanctuary Redux is a fork of Shade Sanctuary meant to simplify and modernize its aesthetic direction.
 
@@ -21,7 +21,7 @@ To install the Shade Sanctuary theme in Obsidian MD:
 - Under "Beta Themes List", click "Add Beta Theme".
 - Paste and submit the repository link:
   ```
-  https://github.com/sisi-sh/sanctuary
+  https://github.com/sie-sh/sanctuary
   ```
 - Enable the theme.
 
@@ -35,8 +35,8 @@ This theme was built to last. It comes with tweaks meant to help you make it you
 
 If you have a certain plugin you'd like to see integrated, found a bug, or have a feature or tweak you'd like to see included in the theme, please feel free to open an Issue or submit a Pull Request.
 
-- Open a [GitHub Issue](https://github.com/sisi-sh/sanctuary/issues) to report bugs or suggest features.
-- Open a [Pull Request](https://github.com/sisi-sh/sanctuary/pulls) to share your features, improvements, or fixes.
+- Open a [GitHub Issue](https://github.com/sie-sh/sanctuary/issues) to report bugs or suggest features.
+- Open a [Pull Request](https://github.com/sie-sh/sanctuary/pulls) to share your features, improvements, or fixes.
 
 ## Credits
 
