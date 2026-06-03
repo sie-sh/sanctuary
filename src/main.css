@@ -1,0 +1,475 @@
+:root {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-smooth: always;
+  /* shape-rendering: geometricPosition; */
+}
+
+/*  =============== App =============== */
+
+/* Recolor the background */
+body,
+body.is-translucent {
+  background-color: var(--background-secondary);
+}
+
+/* ============== Gradient Callout Settings ============== */
+div.callout {
+  font-family: var(--font-callout-theme);
+  mix-blend-mode: normal;
+  border: solid 2px;
+  border-radius: 6px;
+  border-color: rgba(var(--callout-color), 0.3);
+  /* Adjust Title */
+  .callout-title-inner {
+    font-weight: revert;
+    color: rgb(var(--callout-color));
+  }
+  /* Vertically centers the p element */
+  .callout-content {
+    align-items: center;
+  }
+
+  /* Change color of table and bullet lists inside callout */
+  --table-border-color: rgb(var(--callout-color));
+  --table-header-border-color: rgb(var(--callout-color));
+  --list-marker-color: rgb(var(--callout-color));
+  --link-color: rgb(var(--callout-color));
+  --bold-color: rgb(var(--callout-color));
+}
+
+/* ============== Tables ============== */
+:root table {
+  --table-border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Round the tables */
+th:first-child {
+  border-top-left-radius: var(--table-border-radius);
+}
+th:last-child {
+  border-top-right-radius: var(--table-border-radius);
+}
+tr:last-child td:first-child {
+  border-bottom-left-radius: var(--table-border-radius);
+}
+tr:last-child td:last-child {
+  border-bottom-right-radius: var(--table-border-radius);
+}
+:root :is(td, th) {
+  border-width: 0 var(--table-border-width) var(--table-border-width) 0;
+}
+
+.markdown-preview-view table {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ============== Inline Elements ============== */
+div.inline-title {
+  color: var(--title-color);
+  /* margin-bottom: 4px; */
+  /* Redux: Removed font style  */
+}
+
+/* ============== Images ============== */
+img {
+  display: block;
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+/* ============== Blockquote ============== */
+.markdown-rendered blockquote {
+  border-left: 2px solid var(--text-accent);
+}
+
+/* ============== Indentation Guides ============== */
+.markdown-rendered.show-indentation-guide li > ul::before,
+.markdown-rendered.show-indentation-guide li > ol::before {
+  border-color: transparent;
+}
+
+/* ============== Status Bar ============== */
+.status-bar {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  transform: translate(-10px, -6px);
+  --status-bar-radius: 10px;
+  --status-bar-border-width: 1px 1px 0 1px;
+  background: var(--background-secondary);
+}
+
+/*  =============== Vault Profile =============== */
+
+body:not(.is-phone)
+  .workspace-split.mod-left-split
+  .workspace-sidedock-vault-profile {
+  border-radius: 10px;
+  border: solid 1px var(--background-modifier-border);
+  padding: 5px;
+  margin: 0px 0px 5px 0px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-interface-theme);
+  align-self: center; /* Center the element in the flex container */
+  width: calc(100% - 15px);
+}
+
+/* ============== Horizontal Rule ============== */
+.markdown-preview-view hr,
+.cm-line hr {
+  height: 30px;
+}
+
+/*  =============== Editor =============== */
+
+body:not(.is-mobile)
+  .mod-root
+  .workspace-tab-container
+  .view-content:not(.bases-view .view-content) {
+  --radius: 16px;
+
+  width: calc(100% - 6px);
+  margin: 3px auto;
+
+  &:not(:has(.markdown-source-view)) {
+    border-radius: var(--radius);
+  }
+  &:has(> .markdown-source-view) {
+    width: calc(100% - 3px);
+    margin: 3px 0 3px 3px;
+
+    --scrollbar-width-with-offset: calc(var(--scrollbar-width) - 0.5px);
+    clip-path: shape(
+      from var(--radius) 0,
+      arc to 0 var(--radius) of var(--radius),
+      line to 0 calc(100% - var(--radius)),
+      arc to var(--radius) 100% of var(--radius),
+      line to calc(100% - var(--scrollbar-width-with-offset) - var(--radius))
+        100%,
+      arc to calc(100% - var(--scrollbar-width-with-offset))
+        calc(100% - var(--radius)) of var(--radius),
+      line to calc(100% - var(--scrollbar-width-with-offset)) 100%,
+      line to 100% 100%,
+      line to 100% 0,
+      line to calc(100% - var(--scrollbar-width-with-offset)) 0,
+      line to calc(100% - var(--scrollbar-width-with-offset)) var(--radius),
+      arc to calc(100% - var(--scrollbar-width-with-offset) - var(--radius)) 0
+        of var(--radius),
+      close
+    );
+  }
+
+  &:has(> .bases-header) {
+    width: 100%;
+  }
+}
+
+/* Remove borders on sidebars and headers */
+.workspace-ribbon,
+.workspace-tab-header-container {
+  border: none;
+}
+
+/* Remove fade in view header */
+.mod-fade:not(.mod-at-end)::after {
+  display: none;
+}
+
+/* Set editor border and radius */
+.workspace-fake-target-overlay:not(.is-in-sidebar)
+  .workspace-tabs
+  .workspace-leaf,
+.mod-root .workspace-tabs .workspace-leaf {
+  border-radius: 20px;
+  border: solid 1px var(--background-modifier-border);
+  box-sizing: border-box;
+}
+
+.show-ribbon .mod-root {
+  margin-left: -1px;
+  width: calc(100% + 1px);
+}
+
+/* Avoid clipping leaf border on window boeder on windows */
+body {
+  .mod-root {
+    padding-bottom: 1px;
+    padding-top: 1px;
+  }
+
+  &:not(.show-ribbon)&:not(:has(.is-left-sidedock-open)) .mod-root {
+    padding-left: 1px;
+  }
+
+  &:not(:has(.is-right-sidedock-open)) .mod-root {
+    padding-right: 1px;
+  }
+}
+
+/* Banner plugin set images to round */
+.markdown-preview-view img:not([width]),
+.markdown-rendered img:not([width]) {
+  border-radius: 16px;
+}
+
+/* ============== View Header ============== */
+.view-header-title,
+.view-header-title-parent {
+  color: var(--header-title-color);
+}
+
+/* Center the header and revamp it */
+
+body:not(.is-phone) {
+  --view-header-height: 42px;
+}
+
+:not(.is-phone) .mod-root .workspace-leaf .view-header {
+  margin: 3px 3px 0; /* Center the box horizontally and vertically */
+
+  height: var(--view-header-height);
+  max-height: var(--view-header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  border-radius: 16px;
+  background: var(--background-secondary);
+  width: calc(
+    100% - 6px
+  ); /* Make the width smaller than the parent container */
+}
+
+/*  =============== Tabs and Icons ============== */
+
+body {
+  --tab-background-active: var(--background-primary);
+  --tab-font-size: 10pt;
+  --tab-font-weight: inherit;
+  --tab-outline-color: var(--divider-color);
+  --tab-outline-width: 1px;
+  --tab-curve: 10px;
+  /* --tab-width: 240px; */
+  /* --tab-max-width: 400px; */
+}
+
+/* Redux: Simplify styles for this by a lot; and make tabs a bit more snug */
+
+/* Tweaking workspace tab header  */
+
+body:not(.is-phone)
+  .mod-root
+  .workspace-tabs:not(.mod-stacked)
+  .workspace-tab-header-container {
+  /* Add 2px for that sexy first tab curve  */
+  padding-left: 10px;
+}
+
+body:not(.is-phone)
+  .mod-root
+  .workspace-tabs:not(.mod-stacked)
+  .workspace-tab-header-container
+  .workspace-tab-header-container-inner {
+  /* Increased side padding fixes overflow
+     * caused by increased --tab-curve  */
+  padding: 1px 20px 0;
+}
+
+/* All Workspace Tabs */
+
+body:not(.is-phone)
+  .mod-root
+  .workspace-tabs:not(.mod-stacked)
+  .workspace-tab-header {
+  border-radius: 10px 10px 0px 0px;
+  padding: 0;
+  width: calc(var(--tab-width) - 10px);
+
+  /* Redux: no border on inactive tabs, but spacing consistent */
+  border: solid 1px transparent;
+  border-bottom: 0;
+}
+
+body:not(.is-phone)
+  .mod-root
+  .workspace-tabs:not(.mod-stacked)
+  .workspace-tab-header
+  .workspace-tab-header-inner {
+  border-radius: 10px 10px 0px 0px;
+  padding: 0 9px;
+}
+
+/* Active tab behavior */
+body:not(.is-phone)
+  .mod-root
+  .workspace-tabs:not(.mod-stacked)
+  .workspace-tab-header.is-active {
+  /* Fattening border effect on active tab  */
+  border: solid 1px var(--background-modifier-border);
+  border-bottom: 0;
+  z-index: 1;
+}
+
+/* Inactive tabs */
+body:not(.is-phone)
+  .mod-root
+  .workspace-tabs:not(.mod-stacked)
+  .workspace-tab-header:not(.is-active) {
+  background-color: var(--inactive-tab-background);
+}
+
+/* Remove lines in-between tabs */
+body:not(.is-phone)
+  .mod-root
+  .workspace-tabs:not(.mod-stacked)
+  .workspace-tab-header-inner::after {
+  display: none;
+}
+/* Remove resize borders on left and right */
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+  border: none;
+}
+
+.mod-root .workspace-leaf-resize-handle {
+  border-color: transparent;
+}
+
+/* Color of header container at top */
+.workspace-tab-header-container {
+  background-color: var(--tab-container-background);
+  border-bottom: 0;
+}
+
+/* Container under icons */
+.mod-left-split .workspace-tab-header-container-inner,
+.mod-right-split .workspace-tab-header-container-inner {
+  padding-bottom: 0;
+}
+
+/* Icon tab radius */
+.mod-left-split .workspace-tab-header-container .workspace-tab-header,
+.mod-right-split .workspace-tab-header-container .workspace-tab-header {
+  border-radius: var(--radius-m);
+
+  .workspace-tab-header-inner {
+    border-radius: var(--radius-s);
+  }
+}
+
+/* All icons */
+.mod-left-split .workspace-tab-header,
+.mod-right-split .workspace-tab-header,
+.mod-left-split .workspace-tab-header:hover,
+.mod-right-split .workspace-tab-header:hover {
+  border: 1px solid var(--color-base-40);
+  /* border-radius: 10px; */
+}
+
+/* The icons that are active */
+.mod-left-split .workspace-tab-header.is-active,
+.mod-right-split .workspace-tab-header.is-active,
+.mod-left-split .workspace-tab-header.is-active:hover,
+.mod-right-split .workspace-tab-header.is-active:hover {
+  background-color: var(--color-base-30);
+  border: 1px solid var(--color-base-40);
+  /* border-radius: 10px; */
+}
+
+/* Fixes strange border at the upper left */
+.sidebar-toggle-button {
+  /* background-color: var(--background-primary-alt); */
+  /* height: 100%; */
+  margin-top: 1px; /* Visually center toggle icons */
+}
+
+/* Adds border to the left */
+.workspace-ribbon.mod-left {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-right-color: var(--divider-color);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: var(--divider-color);
+  border-top-style: solid;
+  border-top-width: 1px;
+  background: var(--background-primary);
+
+  /* Prevent borders from overlapping, a choice */
+  /* margin-right: 1px; */
+
+  /* Remove border above ribbon */
+  &::before {
+    border: none;
+  }
+}
+
+/* Remove border dividing two editors */
+.workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle {
+  border: transparent;
+}
+
+/*  =============== Stacked tabs =============== */
+
+/* Redux: Rounded stacked tabs */
+
+/* TODO: fix border overlapping issues  */
+.mod-stacked .workspace-tab-container {
+  /* border: solid 1px var(--background-modifier-border); */
+  border-right: solid 1px var(--background-modifier-border);
+  border-left: solid 1px var(--background-modifier-border);
+  border-radius: 20px;
+}
+
+.mod-stacked .workspace-leaf {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.mod-stacked .workspace-tab-header {
+  border-radius: 20px 0 0 20px !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.mod-stacked .workspace-tab-header-inner {
+  width: min-content !important;
+  border-radius: 18px 0 0 18px !important;
+
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+/* Active thicc */
+.mod-stacked .workspace-tab-header.is-active {
+  border-width: 3px;
+  border-color: var(--color-base-50);
+}
+
+/* Sneakily hide the gap between a hidden tab header
+   * and the rounded corner of the next leaf.
+   * Doesn't work for preloaded zero-width tabs,
+   * but there are no known elegant alternatives */
+.mod-stacked
+  .workspace-tab-header:has(+ .workspace-leaf.is-hidden)
+  .workspace-tab-header-inner::after {
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  background: var(--background-primary);
+  z-index: -1;
+}
+
+.graph-control-section {
+  padding: 8px 8px 6px;
+}

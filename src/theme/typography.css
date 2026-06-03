@@ -1,0 +1,111 @@
+/* ============== Headings ============== */
+body
+  .markdown-rendered
+  .markdown-preview-section
+  > div
+  > :is(h1, h2, h3, h4, h5, h6, p),
+body .markdown-source-view.mod-cm6 .HyperMD-header,
+body
+  .markdown-rendered
+  .markdown-preview-section
+  > div:has(+ div > :is(h1, h2, h3, h4, h5, h6))
+  > :last-child,
+body
+  .markdown-rendered
+  .markdown-preview-section
+  > div:has(:is(h1, h2, h3, h4, h5, h6, p))
+  + div
+  > :first-child {
+  margin-block: var(--unified-heading-space);
+}
+
+body
+  .markdown-rendered
+  .markdown-preview-section
+  > div:has(+ div > :is(h1, h2, h3, h4, h5, h6))
+  > :last-child {
+  margin-bottom: 18px;
+}
+
+/* ============== Gradient Callout Settings ============== */
+.callout {
+  font-family: var(--font-callout-theme);
+  mix-blend-mode: normal;
+  border: solid 1px;
+  border-radius: 6px;
+  border-color: rgba(var(--callout-color), 0.3);
+  /* Adjust Title */
+  .callout-title-inner {
+    font-weight: revert;
+    color: rgb(var(--callout-color));
+  }
+  /* Vertically centers the p element */
+  .callout-content {
+    align-items: center;
+  }
+
+  /* Change color of table and bullet lists inside callout */
+  --table-border-color: rgb(var(--callout-color));
+  --table-header-border-color: rgb(var(--callout-color));
+  --list-marker-color: rgb(var(--callout-color));
+  --link-color: rgb(var(--callout-color));
+  --bold-color: rgb(var(--callout-color));
+}
+
+/* ============== Tables ============== */
+:root table {
+  --table-border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Round the tables */
+th:first-child {
+  border-top-left-radius: var(--table-border-radius);
+}
+th:last-child {
+  border-top-right-radius: var(--table-border-radius);
+}
+tr:last-child td:first-child {
+  border-bottom-left-radius: var(--table-border-radius);
+}
+tr:last-child td:last-child {
+  border-bottom-right-radius: var(--table-border-radius);
+}
+:root :is(td, th) {
+  border-width: 0 var(--table-border-width) var(--table-border-width) 0;
+}
+
+.markdown-preview-view table {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ============== Inline Elements ============== */
+div.inline-title {
+  color: var(--title-color);
+}
+
+/* ============== Images ============== */
+img {
+  display: block;
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+/* ============== Blockquote ============== */
+.markdown-rendered blockquote {
+  border-left: 2px solid var(--text-accent);
+}
+
+/* ============== Indentation Guides ============== */
+.markdown-rendered.show-indentation-guide li > ul::before,
+.markdown-rendered.show-indentation-guide li > ol::before {
+  border-color: transparent;
+}
+
+/* ============== Horizontal Rule ============== */
+.markdown-preview-view hr,
+.cm-line hr {
+  height: 30px;
+}
