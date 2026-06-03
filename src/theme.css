@@ -234,15 +234,18 @@ body:not(.is-mobile)
 }
 
 /* Avoid clipping leaf border on window boeder on windows */
-.mod-windows {
+body {
   .mod-root {
-    padding-right: 1px;
     padding-bottom: 1px;
     padding-top: 1px;
   }
 
-  &:not(.show-ribbon) .mod-root {
+  &:not(.show-ribbon)&:not(:has(.is-left-sidedock-open)) .mod-root {
     padding-left: 1px;
+  }
+
+  &:not(:has(.is-right-sidedock-open)) .mod-root {
+    padding-right: 1px;
   }
 }
 
