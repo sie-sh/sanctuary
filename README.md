@@ -2,7 +2,6 @@
 
 ![image](https://github.com/user-attachments/assets/2ce21efe-96ae-4398-adbd-fbea9ee9cdf6)
 
-
 Sanctuary Redux is a fork of Shade Sanctuary meant to simplify and modernize its aesthetic direction.
 
 Major changes:
@@ -28,13 +27,11 @@ To install the Shade Sanctuary theme in Obsidian MD:
 
 ## Customization
 
-There's a bunch of options available in the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. This allows you to select from 11 different color schemes, ranging across the entire color spectrum from red to purple. You can also adjust the intensity of your interface, whether you prefer it brighter side or quite dark.
-
-Bonus: There are snippets available for the original Shade Sanctuary available here: [Elevict's snippets](https://github.com/Elevict/Elevict-Snippets). These snippets include features such as mathematics callouts, gradient callouts and headers, animated elements, and much more. These have not been tested on Sanctuary Redux, but should work if they peak your interest.
+There's a bunch of options available in the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. This allows you to select from 11 different color schemes, ranging across the entire color spectrum from red to purple. You can also adjust the intensity of your interface, whether you prefer it brighter side or quite dark. Additionally, there are a number of tweaks to improve your experience, many of which are enabled by default. Check out the menu to see more. 
 
 ## Contributing
 
-This theme was built to last. It comes with tweaks meant to help you make it yours, and currently includes integrations with a few popular plugins such as Calendar, Vertical Tabs, Banners, Hover Editor, and more.
+This theme was built to last. It comes with tweaks meant to help you make it yours, and currently includes integrations with a number of popular plugins. 
 
 If you have a certain plugin you'd like to see integrated, found a bug, or have a feature or tweak you'd like to see included in the theme, please feel free to open an Issue or submit a Pull Request.
 
