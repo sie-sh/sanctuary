@@ -1,0 +1,9 @@
+.in-progress {
+  .progress-bar-container {
+    background: oklch(0 0 228);
+  }
+
+  .progress-bar-message {
+    color: oklch(0.95 0 220);
+  }
+}
