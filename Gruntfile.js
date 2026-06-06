@@ -28,6 +28,7 @@ module.exports = function (grunt) {
   const path = require("path");
   const fs = require("fs");
   const os = require("os");
+  const sass = require("sass");
 
   // Auto-load all grunt tasks from package.json
   require("load-grunt-tasks")(grunt);
@@ -52,15 +53,36 @@ module.exports = function (grunt) {
   };
 
   // Helper: discover CSS files dynamically (so new files are picked up without restart)
+  // Includes compiled SCSS output from .tmp/ so .scss files are seamlessly included
   const getCssFiles = () =>
     grunt.file.expand(
       { filter: "isFile" },
+      ".tmp/**/*.css",
       "src/**/*.css",
       "!src/original.css",
     );
 
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
+
+    // Compile SCSS files to .tmp/ for seamless inclusion in the build
+    sass: {
+      dist: {
+        options: {
+          implementation: sass,
+          sourceMap: false,
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "src",
+            src: ["**/*.scss"],
+            dest: ".tmp",
+            ext: ".css",
+          },
+        ],
+      },
+    },
 
     // Load environment variables from .env file
     env: {
@@ -70,9 +92,10 @@ module.exports = function (grunt) {
     },
 
     // Concatenate CSS files - always generates theme.css
+    // Includes compiled SCSS from .tmp/ so .scss files are picked up automatically
     concat_css: {
       dist: {
-        src: ["src/**/*.css", "!src/original.css"],
+        src: [".tmp/**/*.css", "src/**/*.css", "!src/original.css"],
         dest: "theme.css",
       },
     },
@@ -103,6 +126,7 @@ module.exports = function (grunt) {
       css: {
         files: ["src/**/*.css", "src/**/*.scss"],
         tasks: [
+          "sass",
           "concat_css",
           "generate_dev_css",
           "postcss",
@@ -118,6 +142,7 @@ module.exports = function (grunt) {
         files: [".env", "Gruntfile.js"],
         tasks: [
           "env",
+          "sass",
           "concat_css",
           "generate_dev_css",
           "postcss",
@@ -129,9 +154,10 @@ module.exports = function (grunt) {
     },
   });
 
-  // Build task: concat, dev css, minify, inject settings, copy manifest
+  // Build task: compile scss, concat, dev css, minify, inject settings, copy manifest
   // Note: env should be loaded before calling build (see default task)
   grunt.registerTask("build", [
+    "sass",
     "concat_css",
     "generate_dev_css",
     "postcss",

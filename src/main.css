@@ -9,86 +9,7 @@
 /* Recolor the background */
 body,
 body.is-translucent {
-  background-color: var(--background-secondary);
-}
-
-/* ============== Gradient Callout Settings ============== */
-div.callout {
-  font-family: var(--font-callout-theme);
-  mix-blend-mode: normal;
-  border: solid 2px;
-  border-radius: 6px;
-  border-color: rgba(var(--callout-color), 0.3);
-  /* Adjust Title */
-  .callout-title-inner {
-    font-weight: revert;
-    color: rgb(var(--callout-color));
-  }
-  /* Vertically centers the p element */
-  .callout-content {
-    align-items: center;
-  }
-
-  /* Change color of table and bullet lists inside callout */
-  --table-border-color: rgb(var(--callout-color));
-  --table-header-border-color: rgb(var(--callout-color));
-  --list-marker-color: rgb(var(--callout-color));
-  --link-color: rgb(var(--callout-color));
-  --bold-color: rgb(var(--callout-color));
-}
-
-/* ============== Tables ============== */
-:root table {
-  --table-border-radius: 10px;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-/* Round the tables */
-th:first-child {
-  border-top-left-radius: var(--table-border-radius);
-}
-th:last-child {
-  border-top-right-radius: var(--table-border-radius);
-}
-tr:last-child td:first-child {
-  border-bottom-left-radius: var(--table-border-radius);
-}
-tr:last-child td:last-child {
-  border-bottom-right-radius: var(--table-border-radius);
-}
-:root :is(td, th) {
-  border-width: 0 var(--table-border-width) var(--table-border-width) 0;
-}
-
-.markdown-preview-view table {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* ============== Inline Elements ============== */
-div.inline-title {
-  color: var(--title-color);
-  /* margin-bottom: 4px; */
-  /* Redux: Removed font style  */
-}
-
-/* ============== Images ============== */
-img {
-  display: block;
-  max-width: 100%;
-  border-radius: 3px;
-}
-
-/* ============== Blockquote ============== */
-.markdown-rendered blockquote {
-  border-left: 2px solid var(--text-accent);
-}
-
-/* ============== Indentation Guides ============== */
-.markdown-rendered.show-indentation-guide li > ul::before,
-.markdown-rendered.show-indentation-guide li > ol::before {
-  border-color: transparent;
+  background-color: var(--color-base-00a) !important;
 }
 
 /* ============== Status Bar ============== */
@@ -113,12 +34,6 @@ body:not(.is-phone)
   font-family: var(--font-interface-theme);
   align-self: center; /* Center the element in the flex container */
   width: calc(100% - 15px);
-}
-
-/* ============== Horizontal Rule ============== */
-.markdown-preview-view hr,
-.cm-line hr {
-  height: 30px;
 }
 
 /*  =============== Editor =============== */

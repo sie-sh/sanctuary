@@ -50,6 +50,9 @@ settings:
     default: intensity-twilight
     options:
       -
+        label: All Neon Like 
+        value: intensity-neon
+      -
         label: Abyss
         value: intensity-abyss
       -
