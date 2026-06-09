@@ -64,6 +64,14 @@ settings:
       -
         label: Dawn
         value: intensity-dawn
+  - 
+    id: acc
+    title: Accent Color
+    type: variable-themed-color
+    format: hsl-split
+    opacity: false
+    default-light: 'hsl(262, 46%, 25%)'
+    default-dark: 'hsl(20, 61%, 68%)'
   -
     id: heading-fonts
     title: Fonts

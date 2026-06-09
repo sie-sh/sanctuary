@@ -80,3 +80,21 @@
 .setting-item:has(.style-settings-import) {
   align-items: center;
 }
+
+.themed-color-wrapper {
+  display: flex;
+  gap: 10px;
+
+  .pickr-reset > button {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  & > div {
+    border-radius: var(--radius-l);
+    & + div {
+      margin: 0;
+    }
+  }
+}

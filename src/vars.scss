@@ -36,7 +36,7 @@
 .theme-dark, .theme-light {
   @include linear(base-hue, 10, 293, 293);
   @include easeinquad(fg-hue,   10, 288, 293);
-  --base-uplift: -0.01;
+  --base-uplift: -0.03;
 
   &.violet-aroma {
     @include linear(base-hue, 10, 330, 330);
@@ -45,83 +45,82 @@
     --fg-uplift: -0.05;
   }
   &.pink-passion {
-    @include linear(base-hue, 10, 350, 365);
-    @include linear(fg-hue,   10, 355, 375);
-    --base-uplift: 0.01;
+    @include linear(base-hue, 10, 355, 355);
+    @include linear(fg-hue,   10, 365, 360);
+    --base-uplift: -0.01;
   }
   &.red-blood {
-    @include linear(base-hue, 10, 15, 30);
-    @include linear(fg-hue,   10, 20, 30);
+    @include linear(base-hue, 10, 5, 10);
+    @include linear(fg-hue,   10, 10, 20);
+    --base-uplift: -0.01;
   }
   &.orange-sunset {
-    @include linear(base-hue, 10, 85, 45);
-    @include linear(fg-hue,   10, 0, 95);
-    --base-uplift: 0.02;
+    @include linear(base-hue, 10, 75, 65);
+    @include linear(fg-hue,   10, 0, 75);
+    --base-uplift: 0.01;
   }
   &.yellow-glow {
-    @include linear(base-hue, 10, 100, 80);
-    @include easeoutquad(fg-hue, 10, 75, 95);
-    --base-uplift: 0.05;
+    @include linear(base-hue, 10, 100, 90);
+    @include easeoutquad(fg-hue, 10, 85, 105);
+    --base-uplift: 0.04;
   }
   &.leaf-serenity {
     @include linear(base-hue, 10, 120, 120);
-    @include linear(fg-hue, 10, 120, 120);
+    @include linear(fg-hue,   10, 120, 120);
     --base-uplift: 0.04;
   }
   &.mint-spray {
     @include linear(base-hue, 10, 180, 180);
-    @include linear(fg-hue,   10, 180, 180);
+    @include linear(fg-hue,   10, 160, 180);
     --base-uplift: 0.02;
   }
   &.aqua-ocean {
     @include linear(base-hue, 10, 200, 218);
     @include linear(fg-hue,   10, 200, 200);
-    --base-uplift: 0.02;
+    --base-uplift: 0.01;
   }
   &.indigo-harmony {
-    @include linear(base-hue, 10, 262, 262);
-    @include linear(fg-hue,   10, 270, 262);
-    // --base-uplift: -0.01;
-    // --fg-uplift: 0.05;
-    &.theme-dark {
-      // @include linear(fg-lum,           10, 0.94, 0.7);
-      // @include easeoutquad(fg-chroma,   10, 0.015, 0.5);
-    }
+    @include linear(base-hue, 10, 270, 285);
+    @include linear(fg-hue,   10, 275, 270);
+    --base-uplift: -0.04;
   }
 }
 
-
 .theme-dark {
-  @include linear(base-lum,         10, 0.08, 1);
+  @include linear(base-lum,         10, 0.07, 1);
   @include easeoutsine(base-chroma, 10, 0.08, 0.3);
-  @include linear(fg-lum,           10, 0.95, 0.65);
-  @include easeoutsine(fg-chroma,   10, 0.01, 0.4);
-&.intensity-neon {
-  @include linear(base-lum,         10, 0.06, 1.3);
-  @include easeoutsine(base-chroma, 10, 0.08, 0.4);
-  @include linear(fg-lum,           10, 1.2, 0.65);
-  @include easeoutsine(fg-chroma,   10, 0.08, 0.35);
-}
-&.intensity-abyss {
-  @include linear(base-lum,         10, 0.05, .925);
-  @include easeoutsine(base-chroma, 10, 0.08, 0.35);
-  @include linear(fg-lum,           10, 0.89, 0.45);
-  @include easeoutsine(fg-chroma,   10, 0.05, 0.25);
-}
-&.intensity-mist {
-  @include linear(base-lum,         10, 0.085, 1.1);
-  @include easeoutsine(base-chroma, 10, 0.1, 0.35);
-}
-&.intensity-dawn {
-  @include linear(base-lum,         10, 0.11, 1.15);
-  @include easeoutsine(base-chroma, 10, 0.1, 0.35);
-}
+  @include linear(fg-lum,           10, 0.90, 0.55);
+  @include easeoutsine(fg-chroma,   10, 0.02, 0.3);
+
+  &.intensity-neon {
+    @include linear(base-lum,         10, 0.06, 1.3);
+    @include easeoutsine(base-chroma, 10, 0.08, 0.4);
+    @include linear(fg-lum,           10, 1.2,  0.65);
+    @include easeoutsine(fg-chroma,   10, 0.08, 0.35);
+  }
+  &.intensity-abyss {
+    @include linear(base-lum,         10, 0.04, .925);
+    @include easeoutsine(base-chroma, 10, 0.08, 0.35);
+    @include linear(fg-lum,           10, 0.85, 0.45);
+    @include easeoutsine(fg-chroma,   10, 0.06, 0.25);
+  }
+  &.intensity-mist {
+    @include linear(base-lum,         10, 0.085, 1.1);
+    @include easeoutsine(base-chroma, 10, 0.1,   0.35);
+    @include linear(fg-lum,           10, 1,     0.55);
+    @include easeoutsine(fg-chroma,   10, 0.08,  0.3);
+  }
+  &.intensity-dawn {
+    @include linear(base-lum,         10, 0.11, 1.15);
+    @include easeoutsine(base-chroma, 10, 0.1,  0.35);
+  }
 }
 .theme-light {
   @include linear(base-lum,         10, 0.775, 0.1);
-  @include easeoutsine(base-chroma, 10, 0.03, 0.4);
-  @include linear(fg-lum,           10, 0.1, 0.5);
-  @include easeoutsine(fg-chroma,   10, 0.1, 0.4);
+  @include easeoutsine(base-chroma, 10, 0.03,  0.4);
+  @include linear(fg-lum,           10, 0.1,   0.5);
+  @include easeoutsine(fg-chroma,   10, 0.1,   0.4);
+    --base-uplift: 0.0 !important;
 }
 
 .grey-stone {
@@ -132,26 +131,38 @@
   @include linear(fg-chroma,   10, 0, 0);
 
   &.theme-dark {
-    @include linear(base-lum,         10, 0.12, 1);
-    @include linear(fg-lum,           10, 0.95, 0.6);
-  }
-  &.intensity-abyss {
-    @include linear(base-lum,         10, 0.07, .89);
-    @include linear(fg-lum,           10, 0.85, 0.6);
-  }
-  &.intensity-mist {
-    @include linear(base-lum,         10, 0.15, 1);
-    @include linear(fg-lum,           10, 0.95, 0.6);
-  }
-  &.intensity-dawn {
-    @include linear(base-lum,         10, 0.18, 1);
-    @include linear(fg-lum,           10, 0.95, 0.6);
+    @include linear(base-lum,    10, 0.12, 1);
+    @include linear(fg-lum,      10, 0.95, 0.6);
+    @include linear(base-chroma, 10, 0,    0);
+    @include linear(fg-chroma,   10, 0,    0);
+    &.intensity-abyss {
+      @include linear(base-lum,    10, 0.07, .89);
+      @include linear(fg-lum,      10, 0.85, 0.6);
+      @include linear(base-chroma, 10, 0,    0);
+      @include linear(fg-chroma,   10, 0,    0);
+    }
+    &.intensity-mist {
+      @include linear(base-lum,    10, 0.15, 1);
+      @include linear(fg-lum,      10, 0.95, 0.6);
+      @include linear(base-chroma, 10, 0,    0);
+      @include linear(fg-chroma,   10, 0,    0);
+    }
+    &.intensity-dawn {
+      @include linear(base-lum,    10, 0.18, 1);
+      @include linear(fg-lum,      10, 0.95, 0.6);
+      @include linear(base-chroma, 10, 0,    0);
+      @include linear(fg-chroma,   10, 0,    0);
+    }
   }
 }
 
 @mixin colorscale($name, $steps) {
   @for $i from 0 through $steps {
-    --color-#{$name}-#{$i}0:  oklch(calc( var(--#{$name}-lum-#{$i}0) + var(--#{$name}-uplift, 0) )  var(--#{$name}-chroma-#{$i}0)  var(--#{$name}-hue-#{$i}0)); 
+    @if $i == 0 {
+      --color-#{$name}-#{$i}0:  oklch(calc( var(--#{$name}-lum-#{$i}0) + var(--#{$name}-uplift, 0) )  var(--#{$name}-chroma-#{$i}0)  var(--#{$name}-hue-#{$i}0)); 
+    } @else {
+      --color-#{$name}-#{$i}0:  oklch(var(--#{$name}-lum-#{$i}0)  var(--#{$name}-chroma-#{$i}0)  var(--#{$name}-hue-#{$i}0)); 
+    }
   }
 }
 
@@ -201,6 +212,7 @@
   --h4-color: var(--color-fg-40);
   --h5-color: var(--color-fg-30);
   --h6-color: var(--color-fg-20);
+
 }
 
 /* Applied variables */
@@ -240,6 +252,10 @@ body {
   --setting-items-radius: 16px;
   --button-radius: 8px;
   --input-radius: 8px;
+
+  --accent-h: var(--acc-h) !important;
+  --accent-s: var(--acc-s) !important;
+  --accent-l: var(--acc-l) !important;
 }
 
 .theme-dark {
@@ -257,7 +273,5 @@ body {
   --magenta: #e54f9b;
   --hot-red: #e3365e;
   --cool-gray: #515768;
-
-
 }
 
