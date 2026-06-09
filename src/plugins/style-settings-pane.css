@@ -76,3 +76,7 @@
 .style-settings-container .setting-item + .setting-item-heading {
   border-top-width: 0;
 }
+
+.setting-item:has(.style-settings-import) {
+  align-items: center;
+}

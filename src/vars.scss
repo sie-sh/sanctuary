@@ -4,14 +4,14 @@
 
 @mixin linear ($name, $steps, $min, $max) {
   @for $i from 0 through $steps {
-    $ratio: $i / ( $steps );
+    $ratio: calc( $i / ( $steps ) );
     $linear: ($max - $min) * $ratio + $min;
     --#{$name}-#{$i}0: #{$linear};
   }
 }
 @mixin easeinquad ($name, $steps, $min, $max) {
   @for $i from 0 through $steps {
-    $ratio: $i / $steps;
+    $ratio: calc( $i / ( $steps ) );
     $easeinquad: ($max - $min) * ( $ratio * $ratio ) + $min;
 
     --#{$name}-#{$i}0: #{$easeinquad};
@@ -19,7 +19,7 @@
 }
 @mixin easeoutquad($name, $steps, $min, $max) {
   @for $i from 0 through $steps {
-    $ratio: $i / $steps;
+    $ratio: calc( $i / ( $steps ) );
     $t: 1 - $ratio;
     $easeoutquad: ($max - $min) * (1 - $t * $t) + $min;
     --#{$name}-#{$i}0: #{$easeoutquad};
@@ -27,25 +27,27 @@
 }
 @mixin easeoutsine($name, $steps, $min, $max) {
   @for $i from 0 through $steps {
-    $ratio: $i / $steps;
+    $ratio: calc( $i / ( $steps ) );
     $easeoutsine: ($max - $min) * math.sin(math.div($ratio * math.$pi, 2)) + $min;
     --#{$name}-#{$i}0: #{$easeoutsine};
   }
 }
 
-.theme-dark,
-.theme-light,
-.purple-mystic {
+.theme-dark {
   @include linear(base-hue, 10, 293, 293);
-  @include easeinquad(fg-hue,   10, 288, 275);
+  @include easeinquad(fg-hue,   10, 288, 293);
+  --base-uplift: -0.01;
 }
 .violet-aroma {
   @include linear(base-hue, 10, 330, 330);
   @include linear(fg-hue,   10, 330, 330);
+  --base-uplift: 0.01;
+  --fg-uplift: -0.05;
 }
 .pink-passion {
   @include linear(base-hue, 10, 350, 365);
-  @include linear(fg-hue,   10, 355, 380);
+  @include linear(fg-hue,   10, 355, 375);
+  --base-uplift: 0.01;
 }
 .red-blood {
   @include linear(base-hue, 10, 15, 30);
@@ -54,26 +56,37 @@
 .orange-sunset {
   @include linear(base-hue, 10, 85, 45);
   @include linear(fg-hue,   10, 0, 95);
+  --base-uplift: 0.02;
 }
 .yellow-glow {
   @include linear(base-hue, 10, 100, 80);
-  @include linear(fg-hue, 10, 100, 100);
+  @include easeoutquad(fg-hue, 10, 75, 95);
+  --base-uplift: 0.05;
 }
 .leaf-serenity {
   @include linear(base-hue, 10, 120, 120);
   @include linear(fg-hue, 10, 120, 120);
+  --base-uplift: 0.04;
 }
 .mint-spray {
   @include linear(base-hue, 10, 180, 180);
   @include linear(fg-hue,   10, 180, 180);
+  --base-uplift: 0.02;
 }
 .aqua-ocean {
-  @include linear(base-hue, 10, 218, 218);
+  @include linear(base-hue, 10, 200, 218);
   @include linear(fg-hue,   10, 200, 200);
+  --base-uplift: 0.02;
 }
 .indigo-harmony {
   @include linear(base-hue, 10, 262, 262);
-  @include linear(fg-hue,   10, 262, 262);
+  @include linear(fg-hue,   10, 270, 262);
+  // --base-uplift: -0.01;
+  // --fg-uplift: 0.05;
+  &.theme-dark {
+    // @include linear(fg-lum,           10, 0.94, 0.7);
+    // @include easeoutquad(fg-chroma,   10, 0.015, 0.5);
+  }
 }
 
 .theme-dark {
@@ -89,13 +102,13 @@
   @include easeoutsine(fg-chroma,   10, 0.08, 0.35);
 }
 .intensity-abyss {
-  @include linear(base-lum,         10, 0.05, .9);
+  @include linear(base-lum,         10, 0.05, .925);
   @include easeoutsine(base-chroma, 10, 0.08, 0.35);
-  @include linear(fg-lum,           10, 0.825, 0.45);
+  @include linear(fg-lum,           10, 0.89, 0.45);
   @include easeoutsine(fg-chroma,   10, 0.05, 0.25);
 }
 .intensity-mist {
-  @include linear(base-lum,         10, 0.09, 1.1);
+  @include linear(base-lum,         10, 0.085, 1.1);
   @include easeoutsine(base-chroma, 10, 0.1, 0.35);
 }
 .intensity-dawn {
@@ -111,12 +124,12 @@
   @include linear(fg-chroma,   10, 0, 0);
 
   &.theme-dark {
-    @include linear(base-lum,         10, 0.1, 1);
+    @include linear(base-lum,         10, 0.12, 1);
     @include linear(fg-lum,           10, 0.95, 0.6);
   }
   &.intensity-abyss {
-    @include linear(base-lum,         10, 0.07, .8);
-    @include linear(fg-lum,           10, 0.95, 0.6);
+    @include linear(base-lum,         10, 0.07, .89);
+    @include linear(fg-lum,           10, 0.85, 0.6);
   }
   &.intensity-mist {
     @include linear(base-lum,         10, 0.15, 1);
@@ -130,7 +143,7 @@
 
 @mixin colorscale($name, $steps) {
   @for $i from 0 through $steps {
-    --color-#{$name}-#{$i}0:  oklch(var(--#{$name}-lum-#{$i}0)  var(--#{$name}-chroma-#{$i}0)  var(--#{$name}-hue-#{$i}0)); 
+    --color-#{$name}-#{$i}0:  oklch(calc( var(--#{$name}-lum-#{$i}0) + var(--#{$name}-uplift, 0) )  var(--#{$name}-chroma-#{$i}0)  var(--#{$name}-hue-#{$i}0)); 
   }
 }
 
