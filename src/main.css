@@ -9,7 +9,7 @@
 /* Recolor the background */
 body,
 body.is-translucent {
-  background-color: var(--color-base-00a) !important;
+  background-color: var(--color-base-00) !important;
 }
 
 /*  =============== Editor =============== */
