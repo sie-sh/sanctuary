@@ -1,224 +1,144 @@
+@use 'sass:math';
+
 /* ============== Color System ============== */
 
-/* Default Base Color */
+@mixin linear ($name, $steps, $min, $max) {
+  @for $i from 0 through $steps {
+    $ratio: $i / ( $steps );
+    $linear: ($max - $min) * $ratio + $min;
+    --#{$name}-#{$i}0: #{$linear};
+  }
+}
+@mixin easeinquad ($name, $steps, $min, $max) {
+  @for $i from 0 through $steps {
+    $ratio: $i / $steps;
+    $easeinquad: ($max - $min) * ( $ratio * $ratio ) + $min;
+
+    --#{$name}-#{$i}0: #{$easeinquad};
+  }
+}
+@mixin easeoutquad($name, $steps, $min, $max) {
+  @for $i from 0 through $steps {
+    $ratio: $i / $steps;
+    $t: 1 - $ratio;
+    $easeoutquad: ($max - $min) * (1 - $t * $t) + $min;
+    --#{$name}-#{$i}0: #{$easeoutquad};
+  }
+}
+@mixin easeoutsine($name, $steps, $min, $max) {
+  @for $i from 0 through $steps {
+    $ratio: $i / $steps;
+    $easeoutsine: ($max - $min) * math.sin(math.div($ratio * math.$pi, 2)) + $min;
+    --#{$name}-#{$i}0: #{$easeoutsine};
+  }
+}
+
 .theme-dark,
 .theme-light,
 .purple-mystic {
-  --hue-bg-base: 293;
-  --hue-fg: 288;
+  @include linear(base-hue, 10, 293, 293);
+  @include easeinquad(fg-hue,   10, 288, 275);
 }
-
 .violet-aroma {
-  --hue-bg-base: 330;
-  --hue-fg: 330;
+  @include linear(base-hue, 10, 330, 330);
+  @include linear(fg-hue,   10, 330, 330);
 }
-
 .pink-passion {
-  --hue-bg-base: 0;
-  --hue-fg: 5;
+  @include linear(base-hue, 10, 350, 365);
+  @include linear(fg-hue,   10, 355, 380);
 }
-
 .red-blood {
-  --hue-bg-base: 15;
-  --hue-fg: 12;
+  @include linear(base-hue, 10, 15, 30);
+  @include linear(fg-hue,   10, 20, 30);
 }
 .orange-sunset {
-  --hue-bg-base: 55;
-  --hue-fg: 55;
+  @include linear(base-hue, 10, 85, 45);
+  @include linear(fg-hue,   10, 0, 95);
 }
 .yellow-glow {
-  --hue-bg-base: 90;
-  --hue-fg: 74;
+  @include linear(base-hue, 10, 100, 80);
+  @include linear(fg-hue, 10, 100, 100);
 }
 .leaf-serenity {
-  --hue-bg-base: 120;
-  --hue-fg: 120;
+  @include linear(base-hue, 10, 120, 120);
+  @include linear(fg-hue, 10, 120, 120);
 }
 .mint-spray {
-  --hue-bg-base: 180;
-  --hue-fg: 180;
+  @include linear(base-hue, 10, 180, 180);
+  @include linear(fg-hue,   10, 180, 180);
 }
 .aqua-ocean {
-  --hue-bg-base: 218;
-  --hue-fg: 200;
+  @include linear(base-hue, 10, 218, 218);
+  @include linear(fg-hue,   10, 200, 200);
 }
 .indigo-harmony {
-  --hue-bg-base: 272;
-  --hue-fg: 272;
+  @include linear(base-hue, 10, 262, 262);
+  @include linear(fg-hue,   10, 262, 262);
 }
 
-/* Default Intensity */
-.theme-dark,
-.theme-light,
-.intensity-twilight {
-  --base-lum: 0.05;
-  --max-lum: 1;
-  --base-chroma: 0.08;
-  --max-chroma: 0.3;
-
-  --base-fg-lum: 0.95;
-  --max-fg-lum: 0.65;
-  --base-fg-chroma: 0.01;
-  --max-fg-chroma: 0.35;
+.theme-dark {
+  @include linear(base-lum,         10, 0.08, 1);
+  @include easeoutsine(base-chroma, 10, 0.08, 0.3);
+  @include linear(fg-lum,           10, 0.95, 0.65);
+  @include easeoutsine(fg-chroma,   10, 0.01, 0.4);
 }
-
-.intensity-abyss {
-  --base-lum: 0;
-  --max-lum: 1;
-  --base-chroma: 0.08;
-  --max-chroma: 0.35;
-
-  --base-fg-lum: 0.9;
-  --max-fg-lum: 0.65;
-  --base-fg-chroma: 0.05;
-  --max-fg-chroma: 0.35;
-}
-
 .intensity-neon {
-  --base-lum: 0;
-  --max-lum: 1.3;
-  --base-chroma: 0.08;
-  --max-chroma: 0.4;
-
-  --base-fg-lum: 1.2;
-  --max-fg-lum: 0.65;
-  --base-fg-chroma: 0.08;
-  --max-fg-chroma: 0.35;
+  @include linear(base-lum,         10, 0.06, 1.3);
+  @include easeoutsine(base-chroma, 10, 0.08, 0.4);
+  @include linear(fg-lum,           10, 1.2, 0.65);
+  @include easeoutsine(fg-chroma,   10, 0.08, 0.35);
 }
-
+.intensity-abyss {
+  @include linear(base-lum,         10, 0.05, .9);
+  @include easeoutsine(base-chroma, 10, 0.08, 0.35);
+  @include linear(fg-lum,           10, 0.825, 0.45);
+  @include easeoutsine(fg-chroma,   10, 0.05, 0.25);
+}
 .intensity-mist {
-  --base-lum: 0.07;
-  --max-lum: 1.1;
-  --base-chroma: 0.1;
-  --max-chroma: 0.35;
+  @include linear(base-lum,         10, 0.09, 1.1);
+  @include easeoutsine(base-chroma, 10, 0.1, 0.35);
 }
-
 .intensity-dawn {
-  --base-lum: 0.11;
-  --max-lum: 1.15;
-  --base-chroma: 0.1;
-  --max-chroma: 0.35;
-  /* --hue-bg-mod: -4; */
+  @include linear(base-lum,         10, 0.11, 1.15);
+  @include easeoutsine(base-chroma, 10, 0.1, 0.35);
 }
 
 .grey-stone {
-  --hue-bg-base: 228;
-  --hue-fg: 220;
+  @include linear(base-hue, 10, 220, 220);
+  @include linear(fg-hue,   10, 220, 220);
 
-  /* Default Intensity */
+  @include linear(base-chroma, 10, 0, 0);
+  @include linear(fg-chroma,   10, 0, 0);
 
-
-  &.theme-dark,
-  &.theme-light,
-  &.intensity-twilight {
-    --base-lum: 0.05;
-    --max-lum: 1.1;
-    --base-chroma: 0;
-    --max-chroma: 0;
-
-    --base-fg-lum: 0.95;
-    --max-fg-lum: 0.6;
-    --base-fg-chroma: 0;
-    --max-fg-chroma: 0;
+  &.theme-dark {
+    @include linear(base-lum,         10, 0.1, 1);
+    @include linear(fg-lum,           10, 0.95, 0.6);
   }
   &.intensity-abyss {
-    --base-lum: 0;
-    --max-lum: 1;
-    --base-chroma: 0;
-    --max-chroma: 0;
+    @include linear(base-lum,         10, 0.07, .8);
+    @include linear(fg-lum,           10, 0.95, 0.6);
   }
-
-
   &.intensity-mist {
-    --base-lum: 0.08;
-    --max-lum: 1.15;
-    --base-chroma: 0;
-    --max-chroma: 0;
+    @include linear(base-lum,         10, 0.15, 1);
+    @include linear(fg-lum,           10, 0.95, 0.6);
   }
-
   &.intensity-dawn {
-    --base-lum: 0.11;
-    --max-lum: 1.2;
-    --base-chroma: 0;
-    --max-chroma: 0;
+    @include linear(base-lum,         10, 0.18, 1);
+    @include linear(fg-lum,           10, 0.95, 0.6);
+  }
+}
+
+@mixin colorscale($name, $steps) {
+  @for $i from 0 through $steps {
+    --color-#{$name}-#{$i}0:  oklch(var(--#{$name}-lum-#{$i}0)  var(--#{$name}-chroma-#{$i}0)  var(--#{$name}-hue-#{$i}0)); 
   }
 }
 
 .theme-dark {
   --hue-bg: calc(var(--hue-bg-base) + var(--hue-bg-mod, 0));
-  /* BG color gen */
-  --fac-lum: calc((var(--max-lum) - var(--base-lum)) / 10);
 
-  --lum-00: calc(var(--base-lum) + (var(--fac-lum) * 0));
-  --lum-10: calc(var(--base-lum) + (var(--fac-lum) * 1));
-  --lum-20: calc(var(--base-lum) + (var(--fac-lum) * 2));
-  --lum-30: calc(var(--base-lum) + (var(--fac-lum) * 3));
-  --lum-40: calc(var(--base-lum) + (var(--fac-lum) * 4));
-  --lum-50: calc(var(--base-lum) + (var(--fac-lum) * 5));
-  --lum-60: calc(var(--base-lum) + (var(--fac-lum) * 6));
-  --lum-70: calc(var(--base-lum) + (var(--fac-lum) * 7));
-  --lum-80: calc(var(--base-lum) + (var(--fac-lum) * 8));
-  --lum-90: calc(var(--base-lum) + (var(--fac-lum) * 9));
-  --lum-100: calc(var(--base-lum) + (var(--fac-lum) * 10));
-
-  --fac-chroma: calc((var(--max-chroma) - var(--base-chroma)) / 10);
-
-  --chroma-00: calc(var(--base-chroma) + (var(--fac-chroma) * 0));
-  --chroma-10: calc(var(--base-chroma) + (var(--fac-chroma) * 1));
-  --chroma-20: calc(var(--base-chroma) + (var(--fac-chroma) * 2));
-  --chroma-30: calc(var(--base-chroma) + (var(--fac-chroma) * 3));
-  --chroma-40: calc(var(--base-chroma) + (var(--fac-chroma) * 4));
-  --chroma-50: calc(var(--base-chroma) + (var(--fac-chroma) * 5));
-  --chroma-60: calc(var(--base-chroma) + (var(--fac-chroma) * 6));
-  --chroma-70: calc(var(--base-chroma) + (var(--fac-chroma) * 7));
-  --chroma-80: calc(var(--base-chroma) + (var(--fac-chroma) * 8));
-  --chroma-90: calc(var(--base-chroma) + (var(--fac-chroma) * 9));
-  --chroma-100: calc(var(--base-chroma) + (var(--fac-chroma) * 10));
-
-  --color-base-00: oklch(var(--lum-00) var(--chroma-00) var(--hue-bg));
-  --color-base-10: oklch(var(--lum-10) var(--chroma-10) var(--hue-bg));
-  --color-base-20: oklch(var(--lum-20) var(--chroma-20) var(--hue-bg));
-  --color-base-30: oklch(var(--lum-30) var(--chroma-30) var(--hue-bg));
-  --color-base-40: oklch(var(--lum-40) var(--chroma-40) var(--hue-bg));
-  --color-base-50: oklch(var(--lum-50) var(--chroma-50) var(--hue-bg));
-  --color-base-60: oklch(var(--lum-60) var(--chroma-60) var(--hue-bg));
-  --color-base-70: oklch(var(--lum-70) var(--chroma-70) var(--hue-bg));
-  --color-base-80: oklch(var(--lum-80) var(--chroma-80) var(--hue-bg));
-  --color-base-90: oklch(var(--lum-90) var(--chroma-90) var(--hue-bg));
-  --color-base-100: oklch(var(--lum-100) var(--chroma-100) var(--hue-bg));
-
-  /* FG color gen  */
-
-  --fac-fg-lum: calc((var(--max-fg-lum) - var(--base-fg-lum)) / 7);
-
-  --lum-fg-00: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 0));
-  --lum-fg-10: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 1));
-  --lum-fg-20: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 2));
-  --lum-fg-30: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 3));
-  --lum-fg-40: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 4));
-  --lum-fg-50: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 5));
-  --lum-fg-60: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 6));
-  --lum-fg-70: calc(var(--base-fg-lum) + (var(--fac-fg-lum) * 7));
-
-  --fac-fg-chroma: calc((var(--max-fg-chroma) - var(--base-fg-chroma)) / 7);
-
-  --chroma-fg-00: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 0));
-  --chroma-fg-10: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 1));
-  --chroma-fg-20: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 2));
-  --chroma-fg-30: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 3));
-  --chroma-fg-40: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 4));
-  --chroma-fg-50: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 5));
-  --chroma-fg-60: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 6));
-  --chroma-fg-70: calc(var(--base-fg-chroma) + (var(--fac-fg-chroma) * 7));
-
-  --color-fg-00: oklch(var(--lum-fg-00) var(--chroma-fg-00) var(--hue-fg));
-  --color-fg-10: oklch(var(--lum-fg-10) var(--chroma-fg-10) var(--hue-fg));
-  --color-fg-20: oklch(var(--lum-fg-20) var(--chroma-fg-20) var(--hue-fg));
-  --color-fg-30: oklch(var(--lum-fg-30) var(--chroma-fg-30) var(--hue-fg));
-  --color-fg-40: oklch(var(--lum-fg-40) var(--chroma-fg-40) var(--hue-fg));
-  --color-fg-50: oklch(var(--lum-fg-50) var(--chroma-fg-50) var(--hue-fg));
-  --color-fg-60: oklch(var(--lum-fg-60) var(--chroma-fg-60) var(--hue-fg));
-  --color-fg-70: oklch(var(--lum-fg-70) var(--chroma-fg-70) var(--hue-fg));
+  @include colorscale(base, 10);
+  @include colorscale(fg, 8);
 
   /* ============== Background and Foreground Colors ============== */
   --background-primary: var(--color-base-00);
