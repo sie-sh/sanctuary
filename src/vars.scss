@@ -120,7 +120,7 @@
   @include easeoutsine(base-chroma, 10, 0.03,  0.4);
   @include linear(fg-lum,           10, 0.1,   0.5);
   @include easeoutsine(fg-chroma,   10, 0.1,   0.4);
-    --base-uplift: 0.0 !important;
+  --base-uplift: 0.0 !important;
 }
 
 .grey-stone {

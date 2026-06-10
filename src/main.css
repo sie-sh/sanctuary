@@ -18,19 +18,12 @@ body:not(.is-mobile)
   .mod-root
   .workspace-tab-container
   .view-content:not(:has(.bases-header), :has(.pdf-toolbar)) {
-  --radius: 16px;
-
-  width: calc(100% - 6px);
-  margin: 12px auto 3px;
-
-  &:not(:has(.markdown-source-view)) {
-    border-radius: var(--radius);
-  }
-
   &:has(> .markdown-source-view) {
+    --radius: 16px;
     width: calc(100% - 3px);
     margin: 0px 0 3px 3px;
 
+    /* Rounding content without clipping the scrollbar */
     --scrollbar-width-with-offset: calc(var(--scrollbar-width) - 0.5px);
     clip-path: shape(
       from var(--radius) 0,
@@ -93,12 +86,6 @@ body {
   &:not(:has(.is-right-sidedock-open)) .mod-root {
     padding-right: 1px;
   }
-}
-
-/* Banner plugin set images to round */
-.markdown-preview-view img:not([width]),
-.markdown-rendered img:not([width]) {
-  border-radius: 16px;
 }
 
 /* ============== View Header ============== */
