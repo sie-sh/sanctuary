@@ -107,3 +107,7 @@ img {
 .cm-line hr {
   height: 30px;
 }
+
+.cm-lineNumbers {
+  font-family: var(--font-monospace-theme);
+}
