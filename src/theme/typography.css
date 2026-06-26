@@ -111,3 +111,21 @@ img {
 .cm-lineNumbers {
   font-family: var(--font-monospace-theme);
 }
+
+/* vim */
+
+.cm-panel.cm-vim-panel {
+  padding: 1px 10px 0px;
+
+  span {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+
+    input {
+      font-size: 0.85em;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
