@@ -22,6 +22,7 @@
     border: 1px solid transparent;
     transition: 200ms ease-out;
     transition-property: backround outline;
+
     &:hover {
       background: var(--color-base-05);
       border-color: var(--background-modifier-border);

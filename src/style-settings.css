@@ -143,6 +143,12 @@ settings:
     type: class-toggle
     default: true
   - 
+    id: source-mono
+    title: Monospaced Source Mode
+    description: Use the monospaced font in Source Mode.
+    type: class-toggle
+    default: true
+  - 
     id: embed-style
     title: Embed Styling
     description: Changes how much embeds are distinguished amongst other blocks of text.

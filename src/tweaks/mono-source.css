@@ -1,0 +1,6 @@
+.source-mono
+  .workspace-leaf-content[data-mode="source"]
+  .markdown-source-view:not(.is-live-preview)
+  .cm-contentContainer {
+  font-family: var(--font-monospace-theme);
+}
