@@ -43,3 +43,13 @@
     }
   }
 }
+
+/* Don't hide add props button on mobile  */
+.is-mobile.prop-stealth .metadata-container:not(.is-collapsed) {
+  margin-bottom: 1em;
+
+  .metadata-add-button {
+    opacity: 1;
+    transition: none;
+  }
+}

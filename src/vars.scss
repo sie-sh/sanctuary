@@ -211,12 +211,14 @@ body {
   }
 }
 
-.theme-dark, .theme-light {
+
+.theme-dark, .theme-light, .is-mobile.theme-dark, .is-mobile.theme-light {
   @include colorscale(base, 10);
   @include colorscale(fg, 8);
 
   /* ============== Background and Foreground Colors ============== */
   --background-primary: var(--color-base-00);
+  --background-primary-alt: var(--color-base-10);
   --background-secondary: var(--color-base-00);
 
   /* ============== General Theme Colors ============== */
