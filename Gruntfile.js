@@ -37,7 +37,7 @@ module.exports = function (grunt) {
   const getBool = (name, defaultValue) => {
     const val = process.env[name];
     if (val === undefined) return defaultValue;
-    return val.toLowerCase() === "true" || val === "1";
+    return val.toString().toLowerCase() === "true" || val === "1";
   };
 
   // Resolve vault path to absolute (supports ~/ and ~\ on any platform)

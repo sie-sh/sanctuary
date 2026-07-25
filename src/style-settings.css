@@ -3,11 +3,11 @@ name: Sanctuary Redux
 id: sanctuary-redux
 settings:
   -
-    id: main-color
+    id: main-color-dark
     title: Theme Color
     description: "The domiannt color of your theme. (Dark Theme only)"
     type: class-select
-    default: purple-mystic
+    default: grey-stone
     options:
       -
         label: Purple
@@ -40,14 +40,22 @@ settings:
         label: Indigo
         value: indigo-harmony
       -
-        label: Grey
+        label: Grey (Default)
         value: grey-stone
+  - 
+    id: acc
+    title: Accent Color
+    type: variable-themed-color
+    format: hsl-split
+    opacity: false
+    default-light: 'hsl(262, 46%, 25%)'
+    default-dark: 'hsl(20, 61%, 68%)'
   -
     id: color-intensity
     title: Intensity
-    description: "The intensity of the main color across your interface. (Dark Theme only)"
+    description: "The intensity of the main color across your interface. (Dark theme)"
     type: class-select
-    default: intensity-twilight
+    default: intensity-mist
     options:
       -
         label: All Neon Like 
@@ -59,19 +67,27 @@ settings:
         label: Twilight
         value: intensity-twilight
       -
-        label: Mist
+        label: Mist (Default)
         value: intensity-mist
       -
         label: Dawn
         value: intensity-dawn
-  - 
-    id: acc
-    title: Accent Color
-    type: variable-themed-color
-    format: hsl-split
-    opacity: false
-    default-light: 'hsl(262, 46%, 25%)'
-    default-dark: 'hsl(20, 61%, 68%)'
+  -
+    id: color-intensity-light
+    title: Intensity (Light Mode)
+    description: "The intensity of the main color across your interface. (Light theme)"
+    type: class-select
+    default: intensity-light-sunny
+    options:
+      -
+        label:  Heatwave
+        value: intensity-light-heatwave
+      -
+        label: Sunny (Default)
+        value: intensity-light-sunny
+      -
+        label: Overcast
+        value: intensity-light-overcast
   -
     id: heading-fonts
     title: Fonts
