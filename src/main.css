@@ -112,7 +112,6 @@ body:not(.is-phone) {
 
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   border-radius: 16px;
-  background: var(--background-secondary);
   width: calc(
     100% - 6px
   ); /* Make the width smaller than the parent container */
