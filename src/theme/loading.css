@@ -1,0 +1,11 @@
+/* neutral loading screen until chosen color theme loads   */
+
+.in-progress:not(.purple-mystic):not(.violet-aroma):not(.pink-passion):not(.red-blood):not(.orange-sunset):not(.yellow-glow):not(.leaf-serenity):not(.mint-spray):not(.aqua-ocean):not(.indigo-harmony):not(.grey-stone) {
+  .progress-bar-container {
+    background: oklch(0 0 228);
+  }
+
+  .progress-bar-message {
+    color: oklch(0.95 0 220);
+  }
+}
