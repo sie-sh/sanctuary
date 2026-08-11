@@ -10,5 +10,6 @@
 
   .mod-root .workspace-leaf .view-header {
     border: solid 1px var(--background-modifier-border);
+    margin-bottom: 3px;
   }
 }
