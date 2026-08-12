@@ -196,9 +196,9 @@ settings:
     type: class-toggle
     default: true
   - 
-    id: spt-calendar
+    id: spt-calendar-normal
     title: Calendar - Custom
-    description: Stylize the calendar to align with Sancuaty's aesthetics.
+    description: Stylize the calendar to align with Sancuaty's aesthetics. (On = disabled (avoid flash))
     type: class-toggle
-    default: true
+    default: false
 */

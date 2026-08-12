@@ -1,4 +1,4 @@
-.spt-calendar {
+body:not(.spt-calendar-normal) {
   .view-content:has(#calendar-container) {
     padding: 30px 0px;
     .day {
