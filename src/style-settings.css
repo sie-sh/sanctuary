@@ -16,7 +16,7 @@ settings:
         label: Violet
         value: violet-aroma
       -
-        label: Pink
+        label: Pink (<3)
         value: pink-passion
       -
         label: Red
@@ -169,11 +169,14 @@ settings:
     title: Embed Styling
     description: Changes how much embeds are distinguished amongst other blocks of text.
     type: class-select
-    default: embeds-default
+    default: embeds-subtle
     options:
       -
-        label: Default
-        value: embeds-default
+        label: Subtle (default)
+        value: embeds-subtle
+      -
+        label: doriginal
+        value: embeds-normal
       -
         label: Relaxed (Outline on Hover)
         value: embeds-conform
