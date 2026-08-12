@@ -1,6 +1,6 @@
 ## Sanctuary Redux
 
-![image](./assets/cover.png)
+![image](./cover.png)
 
 Sanctuary Redux is a fork of Shade Sanctuary meant to simplify and modernize its aesthetic direction.
 
