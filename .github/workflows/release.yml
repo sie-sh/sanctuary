@@ -25,4 +25,4 @@ jobs:
             --title="$tag" \
             --generate-notes \
             --draft \
-            dist/manifest.json dist/theme.css
+            manifest.json theme.css
