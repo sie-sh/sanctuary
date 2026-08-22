@@ -15,7 +15,7 @@ Major changes:
 
 Sanctuary Redux is not yet published in the Obsidian Theme Repository.
 
-To install the Shade Sanctuary theme in Obsidian MD:
+You can install it via BRAT as follows:
 
 - Install BRAT and open up the settings page.
 - Under "Beta Themes List", click "Add Beta Theme".
